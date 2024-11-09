@@ -1,0 +1,60 @@
+/* Navbar Container */
+.navbar {
+    position: absolute; /* Stays at the top of the page */
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center all content */
+    background: white; /* White background */
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for separation */
+    z-index: 10; /* Ensures it appears above other content */
+  }
+  
+  /* Navbar Content Wrapper */
+  .navbar-content {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Space between logo and menu */
+  }
+  
+  /* Logo Styling */
+  .navbar-logo img {
+    height: 50px; /* Adjust logo height */
+  }
+  
+  /* Navbar List */
+  .navbar-list {
+    display: flex;
+    gap: 20px; /* Space between items */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Navbar Links */
+  .navbar-link {
+    text-decoration: none;
+    color: #333; /* Dark text */
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-link:hover {
+    color: #00d4ff; /* Light blue on hover */
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .navbar-content {
+      flex-direction: column; /* Stack logo and menu items vertically */
+      align-items: center;
+    }
+  
+    .navbar-list {
+      flex-direction: column; /* Stack menu items */
+      gap: 10px; /* Reduce spacing */
+    }
+  }
+  

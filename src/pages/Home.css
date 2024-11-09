@@ -1,0 +1,221 @@
+/* General Styling */
+body {
+    margin: 0;
+    font-family: 'Avenir', sans-serif;
+  }
+  
+  .section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Navbar Styling */
+  .navbar {
+    background: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-content {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Space between logo and menu items */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+  }
+  
+  .navbar-logo img {
+    height: 50px;
+  }
+  
+  .navbar-list {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-link:hover {
+    color: #00d4ff;
+  }
+  
+  /* Top Panel */
+  .top-panel {
+    background-size: cover;
+    background-position: center;
+    height: 80vh; /* 80% of the screen height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  .top-panel-content {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .top-panel-content h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  .top-panel-content p {
+    font-size: 18px;
+  }
+  
+  /* Three Column Grid */
+  .grid-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .grid-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .grid-item h3 {
+    margin-top: 10px;
+  }
+  
+  /* About Us Section */
+  .about-us-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .about-us-section p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  /* Our Services Section */
+  .services-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .service-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-item h3 {
+    margin-top: 10px;
+  }
+  
+  /* Our Consultants Section */
+  .consultants-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .consultants-section p {
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  
+  .consultants-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .consultant-item {
+    text-align: center;
+  }
+  
+  .consultant-item img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .consultant-item h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .consultant-item p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Footer Section */
+  .footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 20px;
+    text-align: left;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-content h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+  
+  .footer-content p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .grid-section,
+    .services-grid,
+    .consultants-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .navbar-content {
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+    }
+  
+    .navbar-list {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
