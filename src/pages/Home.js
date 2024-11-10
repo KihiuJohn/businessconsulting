@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Home.css';
-import backgroundImage from '../assets/images/nairobi-conference.jpg';
-import kihiu from '../assets/images/kihiu.jpeg';
-import patience from '../assets/images/dr-patience.jpeg';
-import mugambi from '../assets/images/mugambi.jpg';
+import conferenceImage1 from '../assets/images/conferenceimage1.jpg';
+import conferenceImage2 from '../assets/images/conferenceimage2.jpg';
+import conferenceImage3 from '../assets/images/conferenceimage3.jpg';
+import conferenceImage4 from '../assets/images/conferenceimage4.jpg';
 import Navbar from '../components/Navbar';
 import {
   FaLaptop,
@@ -18,25 +18,42 @@ import {
 } from 'react-icons/fa';
 
 const Home = () => {
+  const images = [
+    conferenceImage1,
+    conferenceImage2,
+    conferenceImage3,
+    conferenceImage4,
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((currentIndex) =>
+        (currentIndex + 1) % images.length
+      );
+    }, 4000); // Change image every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="home-container">
       {/* Navigation Bar */}
       <Navbar />
 
       {/* Top Panel */}
-      <div
-        className="top-panel"
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          height: '80vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: 'white',
-        }}
-      >
+      <div className="top-panel">
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt="Conference"
+            className={`top-panel-image ${
+              index === currentImageIndex ? 'active' : ''
+            }`}
+          />
+        ))}
         <div className="top-panel-content">
           <h1>Welcome to Expro MS Training & Consulting Ltd</h1>
           <p>Your trusted partner in corporate training and consulting.</p>
@@ -63,132 +80,69 @@ const Home = () => {
         </div>
       </div>
 
-      {/* About Us Section */}
-      <div className="full-width-section about-us-background">
+      {/* About Expro MS Section */}
+      <div className="full-width-section about-expro-background">
         <div className="section-container">
-          <h2>About Us</h2>
+          <h2>About Expro MS Training & Consulting Ltd</h2>
           <p>
-            <strong>We Deliver Enduring Results</strong>
-            <br />
-            Expro MS Training & Consulting Ltd is a transformational training and
-            consulting company that delivers corporate training, consulting,
-            coaching, and workshop services.
+            Founded in 2018, Expro MS Training & Consultant Ltd has positioned
+            itself in the market as a fast-growing and transformative consultant
+            services provider. Our theory of change is anchored on solid theoretical
+            training in Monitoring and Evaluation, Business Management, Strategic
+            Management, and Customer Services, among others, ensuring high-impact
+            interventions.
           </p>
           <p>
-            Our management facilitators and consultants have many years of
-            experience transforming people & performance in leading organisations
-            in Africa. We support organisations in becoming thriving places to
-            work, connect and succeed.
-          </p>
-          <p>
-            <strong>Contact: +254-724402062</strong>
+            We are registered by the Registrar of Companies in Kenya, affirming
+            the quality of our programs. We partner with international consulting
+            organizations on high-impact training and mentorship programs.
           </p>
         </div>
       </div>
 
-      {/* Our Services Section */}
-      <div className="full-width-section services-background">
+      {/* Vision, Mission, and Core Values */}
+      <div className="full-width-section vision-mission-background">
         <div className="section-container">
-          <h2>Our Services</h2>
-          <div className="services-grid">
-            <div className="service-item">
-              <FaCode size={50} />
-              <h3>Information Technology</h3>
-            </div>
-            <div className="service-item">
-              <FaLightbulb size={50} />
-              <h3>Digital Strategy</h3>
-            </div>
-            <div className="service-item">
-              <FaChartLine size={50} />
-              <h3>Advanced Analytics</h3>
-            </div>
-            <div className="service-item">
-              <FaUsers size={50} />
-              <h3>Change Management</h3>
-            </div>
-            <div className="service-item">
-              <FaHandshake size={50} />
-              <h3>Mergers and Acquisitions</h3>
-            </div>
-            <div className="service-item">
-              <FaMoneyBillWave size={50} />
-              <h3>Corporate Finance</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Our Consultants Section */}
-      <div className="full-width-section consultants-background">
-        <div className="section-container">
-          <h2>Our Consultants</h2>
+          <h2>Our Vision</h2>
           <p>
-            <strong>Meet Our Leadership Team</strong>
-            <br />
-            We work with change-oriented executives to help them make better
-            decisions, convert those decisions to actions.
+            To be an oasis for the social-economic transformation in Kenya and beyond through enterprise development services.
           </p>
-          <div className="consultants-grid">
-            <div className="consultant-item">
-              <img src={kihiu} alt="John K. Chere" />
-              <h3>John K. Chere</h3>
-              <p>Operations Manager</p>
-              <p>
-                Fintech consultant specializing in digital transformation,
-                payments, data analytics & visualization. Helping institutions
-                innovate and thrive in the digital age.
-              </p>
-            </div>
-            <div className="consultant-item">
-              <img src={patience} alt="Dr. Patience W. Karimi" />
-              <h3>Dr. Patience W. Karimi</h3>
-              <p>Co-founder of Expro</p>
-              <p>
-                Diversity of experience helping organizations harness the power
-                of technology. I geek out on data-driven decisions and making
-                systems work for people.
-              </p>
-            </div>
-            <div className="consultant-item">
-              <img src={mugambi} alt="Jim Kelly" />
-              <h3>Jim Kelly</h3>
-              <p>Founder</p>
-              <p>
-                Economist & financial consultant providing expert advice on
-                data-driven investment decisions, strategies, risk management,
-                macro & micro economic forecasting.
-              </p>
-            </div>
-          </div>
+          <h2>Our Mission</h2>
+          <p>
+            We provide client-centered trainings and results-oriented solutions to promote enterprise growth and development.
+          </p>
+          <h2>Our Core Values</h2>
+          <ul>
+            <li>Professionalism</li>
+            <li>Transparency and Trust</li>
+            <li>Research and Innovation</li>
+            <li>Equity</li>
+            <li>Sustainability</li>
+            <li>Empowerment</li>
+            <li>Collaboration and Partnership</li>
+          </ul>
         </div>
       </div>
 
-      {/* Footer Section */}
+      {/* Footer */}
       <footer className="footer">
         <div className="section-container footer-content">
           <div className="footer-left">
-            <h3>BizNest</h3>
-            <p>
-              We help global leaders with their organization's most critical
-              issues and opportunities. Together, we create enduring change and
-              results.
-            </p>
-          </div>
-          <div className="footer-middle">
-            <h3>Head Office</h3>
-            <p>Anniversary Towers, University Way</p>
-            <p>Nairobi, Kenya</p>
-            <p>jimkelly@expromsconsulting.com</p>
-            <p>+254724402062</p>
+            <h3>CONTACT DETAILS</h3>
+            <h4>Kenya Office</h4>
+            <p>St. Georges House, 4th Floor, Parliament Road</p>
+            <p>P.O. Box 48564 - 00200 Nairobi, Kenya</p>
+            <p>Tel: 020 2395380 | Cell: +254 720090959</p>
+            <p>Email: jimkelly@expromsconsulting.com</p>
+            <h4>Rwanda Office</h4>
+            <p>KN 14 Avenue Plot 43 Kigali, Rwanda</p>
+            <p>Tel: +250724128627</p>
           </div>
           <div className="footer-right">
             <h3>Consulting Services</h3>
             <p>Advanced Analytics</p>
             <p>Change Management</p>
             <p>Corporate Finance</p>
-            <p>Customer Strategy & Marketing</p>
-            <p>Information Technology</p>
           </div>
         </div>
       </footer>

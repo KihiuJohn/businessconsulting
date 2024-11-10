@@ -1,178 +1,180 @@
 /* General Styling */
 body {
   margin: 0;
-  font-family: 'Avenir', sans-serif;
+  font-family: "Avenir", sans-serif;
+  color: #333333; /* Standard text color */
 }
 
-/* Section Wrapper for Full Width and Background */
-.section {
-  width: 100%;
-}
-
-/* Full Width Section with Specific Background Colors */
+/* Section Styling */
 .full-width-section {
   width: 100%;
-  padding: 40px 0; /* Vertical padding for spacing */
+  padding: 40px 0;
 }
 
 .services-background {
-  background-color: #f0f0f0; /* Light gray */
+  background-color: #015c9e;
+  color: white;
 }
 
 .about-us-background {
-  background-color: #ffffff; /* White */
+  background-color: white;
+  color: #333333;
 }
 
-.consultants-background {
-  background-color: #f9f9f9; /* Slightly off-white */
+.about-expro-background {
+  background-color: #015c9e;
+  color: white;
 }
 
-/* Section Container for Content */
+.vision-mission-background {
+  background-color: white;
+  color: #333333;
+}
+
+/* Section Container */
 .section-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Top Panel */
-.top-panel {
-  background-size: cover;
-  background-position: center;
-  height: 80vh; /* 80% of the screen height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-.top-panel-content {
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.top-panel-content h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.top-panel-content p {
-  font-size: 18px;
-}
-
-/* Three Column Grid */
-.grid-section {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  text-align: center;
-  padding: 40px 0;
-}
-
-.grid-item {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
-}
-
-.grid-item:hover {
-  transform: translateY(-5px);
-  background-color: #dff0f8; /* Light blue */
-  color: #007bb5; /* Dark blue for text */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.grid-item h3 {
-  margin-top: 10px;
-}
-
-/* Our Services Section */
-.services-section h2,
-.about-us-section h2,
-.consultants-section h2 {
-  font-size: 28px;
+/* Section Headings */
+h2,
+h3 {
+  color: inherit;
   margin-bottom: 20px;
 }
 
+/* Paragraphs */
+p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* Unordered List Styling */
+ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+/* Top Panel */
+.top-panel {
+  position: relative;
+  height: 65vh; /* Adjusted height to 65% of the viewport */
+  overflow: hidden;
+}
+
+.top-panel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.top-panel-image.active {
+  opacity: 1;
+}
+
+/* Updated Top Panel Content */
+.top-panel-content {
+  position: absolute;
+  top: 56%;
+  left: 5%;
+  transform: translateY(-50%);
+  color: white;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); /* Semi-transparent black for readability */
+  padding: 20px 30px;
+  border-radius: 10px;
+  max-width: 400px;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0); /* Fully transparent background */
+  box-shadow: none; /* No shadow */
+  transition: background 0.3s ease-in-out;
+}
+
+/* Navbar Content Wrapper */
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+/* Navbar Links */
+.navbar-link {
+  text-decoration: none;
+  color: white; /* White text for visibility */
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+  color: #00d4ff; /* Light blue hover effect */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .top-panel {
+    height: 50vh; /* Further reduce height for smaller screens */
+  }
+
+  .top-panel-content {
+    top: 60%; /* Adjust for smaller screens */
+    max-width: 90%; /* Expand width */
+    padding: 15px 20px; /* Reduce padding */
+  }
+}
+
+/* Grid Layout */
+.grid-section,
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  text-align: center;
 }
 
-.service-item {
-  background-color: #f9f9f9;
+.grid-item {
+  background-color: white;
+  color: #333333;
   padding: 20px;
   border-radius: 10px;
-  text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.service-item:hover {
+.grid-item:hover {
   transform: translateY(-5px);
-  background-color: #e8f5e9; /* Light green */
-  color: #388e3c; /* Dark green for text */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #dff0f8;
+  color: #007bb5;
 }
 
-.service-item h3 {
-  margin-top: 10px;
-}
-
-/* About Us Section */
-.about-us-section p {
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-
-/* Our Consultants Section */
-.consultants-section p {
-  margin-bottom: 30px;
-  line-height: 1.6;
-}
-
-.consultants-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.consultant-item {
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-}
-
-.consultant-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  background-color: #f1f8e9; /* Pale green */
-  color: #4caf50; /* Green text */
-}
-
-.consultant-item img {
-  width: 100%;
-  max-width: 200px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
-
-.consultant-item h3 {
-  font-size: 18px;
-  margin-bottom: 5px;
-}
-
-.consultant-item p {
-  font-size: 14px;
-  color: #666;
-}
-
-/* Footer Section */
+/* Footer */
 .footer {
-  background-color: #333;
+  background-color: #333333;
   color: white;
   padding: 40px 20px;
   text-align: left;
@@ -182,107 +184,14 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
-.footer-content h3 {
-  margin-bottom: 15px;
+.footer h3 {
   font-size: 18px;
+  margin-bottom: 15px;
 }
 
-.footer-content p {
+.footer p {
   font-size: 14px;
   margin-bottom: 10px;
-  line-height: 1.6;
-}
-
-/* Hover Effect for Footer Links */
-.footer-content p:hover {
-  color: #00d4ff; /* Light blue */
-  cursor: pointer;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  /* Navbar Adjustments */
-  .navbar-content {
-    flex-direction: row;
-    justify-content: space-between; /* Ensure logo is left and menu icon is right */
-    padding: 10px 10px; /* Remove side padding */
-    gap: 10px; /* Optional: Adjust gap if needed */
-  }
-
-  /* Hide navbar menu items on small screens */
-  .navbar-list {
-    display: none;
-  }
-
-  /* Show menu icon on small screens */
-  .menu-icon {
-    display: block;
-  }
-
-  /* Reduce logo size on small screens */
-  .navbar-logo img {
-    height: 40px;
-    margin-right: 10px;
-  }
-
-  /* Grid Sections: Single Column */
-  .grid-section,
-  .services-grid,
-  .consultants-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Footer Adjustments: Single Column Layout */
-  .footer-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .footer-content h3 {
-    margin-top: 20px;
-  }
-
-  .footer-content p {
-    margin-bottom: 5px;
-  }
-
-  /* Reduce Padding for Section Containers */
-  .section-container {
-    padding: 10px;
-  }
-
-  /* Adjust Top Panel Content Padding */
-  .top-panel-content {
-    padding: 15px;
-  }
-
-  /* Sidebar Adjustments */
-  .sidebar {
-    width: 200px;
-  }
-
-  .sidebar-list {
-    padding: 15px;
-  }
-
-  .sidebar-link {
-    font-size: 16px;
-    margin-bottom: 12px;
-  }
-
-  /* Full Width Sections: Adjust Padding if Needed */
-  .full-width-section {
-    padding: 40px 0;
-  }
-
-  /* Specific Section Backgrounds: Maintain Full Width */
-  .services-background,
-  .about-us-background,
-  .consultants-background {
-    padding: 40px 0;
-  }
 }
