@@ -4,6 +4,7 @@ import backgroundImage from '../assets/images/nairobi-conference.jpg';
 import kihiu from '../assets/images/kihiu.jpeg';
 import patience from '../assets/images/dr-patience.jpeg';
 import mugambi from '../assets/images/mugambi.jpg';
+import Navbar from '../components/Navbar';
 import {
   FaLaptop,
   FaChartPie,
@@ -19,6 +20,9 @@ import {
 const Home = () => {
   return (
     <div className="home-container">
+      {/* Navigation Bar */}
+      <Navbar />
+
       {/* Top Panel */}
       <div
         className="top-panel"
@@ -26,11 +30,11 @@ const Home = () => {
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          height: '40vh',
-          color: 'white',
+          height: '80vh',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          color: 'white',
         }}
       >
         <div className="top-panel-content">
@@ -39,120 +43,130 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Three Column Grid */}
-      <div className="grid-section section-container">
-        <div className="grid-item">
-          <FaLaptop size={50} />
-          <h3>Training & Consultancy</h3>
-        </div>
-        <div className="grid-item">
-          <FaChartPie size={50} />
-          <h3>Data Analytics & Visualisation</h3>
-        </div>
-        <div className="grid-item">
-          <FaCalendarAlt size={50} />
-          <h3>Training Calendar</h3>
+      {/* Three Column Grid Section */}
+      <div className="full-width-section services-background">
+        <div className="section-container">
+          <div className="grid-section">
+            <div className="grid-item">
+              <FaLaptop size={50} />
+              <h3>Training & Consultancy</h3>
+            </div>
+            <div className="grid-item">
+              <FaChartPie size={50} />
+              <h3>Data Analytics & Visualisation</h3>
+            </div>
+            <div className="grid-item">
+              <FaCalendarAlt size={50} />
+              <h3>Training Calendar</h3>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* About Us Section */}
-      <div className="about-us-section section-container">
-        <h2>About Us</h2>
-        <p>
-          <strong>We Deliver Enduring Results</strong>
-          <br />
-          Expro MS Training & Consulting Ltd is a transformational training and
-          consulting company that delivers corporate training, consulting,
-          coaching, and workshop services.
-        </p>
-        <p>
-          Our management facilitators and consultants have many years of
-          experience transforming people & performance in leading organisations
-          in Africa. We support organisations in becoming thriving places to
-          work, connect and succeed.
-        </p>
-        <p>
-          <strong>Contact: +254-724402062</strong>
-        </p>
+      <div className="full-width-section about-us-background">
+        <div className="section-container">
+          <h2>About Us</h2>
+          <p>
+            <strong>We Deliver Enduring Results</strong>
+            <br />
+            Expro MS Training & Consulting Ltd is a transformational training and
+            consulting company that delivers corporate training, consulting,
+            coaching, and workshop services.
+          </p>
+          <p>
+            Our management facilitators and consultants have many years of
+            experience transforming people & performance in leading organisations
+            in Africa. We support organisations in becoming thriving places to
+            work, connect and succeed.
+          </p>
+          <p>
+            <strong>Contact: +254-724402062</strong>
+          </p>
+        </div>
       </div>
 
       {/* Our Services Section */}
-      <div className="services-section section-container">
-        <h2>Our Services</h2>
-        <div className="services-grid">
-          <div className="service-item">
-            <FaCode size={50} />
-            <h3>Information Technology</h3>
-          </div>
-          <div className="service-item">
-            <FaLightbulb size={50} />
-            <h3>Digital Strategy</h3>
-          </div>
-          <div className="service-item">
-            <FaChartLine size={50} />
-            <h3>Advanced Analytics</h3>
-          </div>
-          <div className="service-item">
-            <FaUsers size={50} />
-            <h3>Change Management</h3>
-          </div>
-          <div className="service-item">
-            <FaHandshake size={50} />
-            <h3>Mergers and Acquisitions</h3>
-          </div>
-          <div className="service-item">
-            <FaMoneyBillWave size={50} />
-            <h3>Corporate Finance</h3>
+      <div className="full-width-section services-background">
+        <div className="section-container">
+          <h2>Our Services</h2>
+          <div className="services-grid">
+            <div className="service-item">
+              <FaCode size={50} />
+              <h3>Information Technology</h3>
+            </div>
+            <div className="service-item">
+              <FaLightbulb size={50} />
+              <h3>Digital Strategy</h3>
+            </div>
+            <div className="service-item">
+              <FaChartLine size={50} />
+              <h3>Advanced Analytics</h3>
+            </div>
+            <div className="service-item">
+              <FaUsers size={50} />
+              <h3>Change Management</h3>
+            </div>
+            <div className="service-item">
+              <FaHandshake size={50} />
+              <h3>Mergers and Acquisitions</h3>
+            </div>
+            <div className="service-item">
+              <FaMoneyBillWave size={50} />
+              <h3>Corporate Finance</h3>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Our Consultants Section */}
-      <div className="consultants-section section-container">
-        <h2>Our Consultants</h2>
-        <p>
-          <strong>Meet Our Leadership Team</strong>
-          <br />
-          We work with change-oriented executives to help them make better
-          decisions, convert those decisions to actions.
-        </p>
-        <div className="consultants-grid">
-          <div className="consultant-item">
-            <img src={kihiu} alt="John K. Chere" />
-            <h3>John K. Chere</h3>
-            <p>Operations Manager</p>
-            <p>
-              Fintech consultant specializing in digital transformation,
-              payments, data analytics & visualization. Helping institutions
-              innovate and thrive in the digital age.
-            </p>
-          </div>
-          <div className="consultant-item">
-            <img src={patience} alt="Dr. Patience W. Karimi" />
-            <h3>Dr. Patience W. Karimi</h3>
-            <p>Co-founder of Expro</p>
-            <p>
-              Diversity of experience helping organizations harness the power
-              of technology. I geek out on data-driven decisions and making
-              systems work for people.
-            </p>
-          </div>
-          <div className="consultant-item">
-            <img src={mugambi} alt="Jim Kelly" />
-            <h3>Jim Kelly</h3>
-            <p>Founder</p>
-            <p>
-              Economist & financial consultant providing expert advice on
-              data-driven investment decisions, strategies, risk management,
-              macro & micro economic forecasting.
-            </p>
+      <div className="full-width-section consultants-background">
+        <div className="section-container">
+          <h2>Our Consultants</h2>
+          <p>
+            <strong>Meet Our Leadership Team</strong>
+            <br />
+            We work with change-oriented executives to help them make better
+            decisions, convert those decisions to actions.
+          </p>
+          <div className="consultants-grid">
+            <div className="consultant-item">
+              <img src={kihiu} alt="John K. Chere" />
+              <h3>John K. Chere</h3>
+              <p>Operations Manager</p>
+              <p>
+                Fintech consultant specializing in digital transformation,
+                payments, data analytics & visualization. Helping institutions
+                innovate and thrive in the digital age.
+              </p>
+            </div>
+            <div className="consultant-item">
+              <img src={patience} alt="Dr. Patience W. Karimi" />
+              <h3>Dr. Patience W. Karimi</h3>
+              <p>Co-founder of Expro</p>
+              <p>
+                Diversity of experience helping organizations harness the power
+                of technology. I geek out on data-driven decisions and making
+                systems work for people.
+              </p>
+            </div>
+            <div className="consultant-item">
+              <img src={mugambi} alt="Jim Kelly" />
+              <h3>Jim Kelly</h3>
+              <p>Founder</p>
+              <p>
+                Economist & financial consultant providing expert advice on
+                data-driven investment decisions, strategies, risk management,
+                macro & micro economic forecasting.
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Footer Section */}
-      <footer className="footer section-container">
-        <div className="footer-content">
+      <footer className="footer">
+        <div className="section-container footer-content">
           <div className="footer-left">
             <h3>BizNest</h3>
             <p>
