@@ -12,28 +12,38 @@ import './Navbar.css';
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [sidebarTrainingDropdownOpen, setSidebarTrainingDropdownOpen] = useState(false);
-  const [sidebarCalendarDropdownOpen, setSidebarCalendarDropdownOpen] = useState(false);
+  const [trainingDropdownOpen, setTrainingDropdownOpen] = useState(false);
+  const [calendarDropdownOpen, setCalendarDropdownOpen] = useState(false);
   const [navbarBackground, setNavbarBackground] = useState('rgba(255, 255, 255, 0)');
 
   // Toggle sidebar visibility
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
-    // Close sidebar dropdowns when sidebar is closed
+    // Close dropdowns when sidebar is toggled
     if (sidebarOpen) {
-      setSidebarTrainingDropdownOpen(false);
-      setSidebarCalendarDropdownOpen(false);
+      setTrainingDropdownOpen(false);
+      setCalendarDropdownOpen(false);
     }
+  };
+
+  // Toggle Training dropdown in main navbar
+  const toggleTrainingDropdown = () => {
+    setTrainingDropdownOpen(!trainingDropdownOpen);
+  };
+
+  // Toggle Training Calendar dropdown in main navbar
+  const toggleCalendarDropdown = () => {
+    setCalendarDropdownOpen(!calendarDropdownOpen);
   };
 
   // Toggle Training dropdown in sidebar
   const toggleSidebarTrainingDropdown = () => {
-    setSidebarTrainingDropdownOpen(!sidebarTrainingDropdownOpen);
+    setTrainingDropdownOpen(!trainingDropdownOpen);
   };
 
   // Toggle Training Calendar dropdown in sidebar
   const toggleSidebarCalendarDropdown = () => {
-    setSidebarCalendarDropdownOpen(!sidebarCalendarDropdownOpen);
+    setCalendarDropdownOpen(!calendarDropdownOpen);
   };
 
   // Handle navbar background on scroll
@@ -57,8 +67,8 @@ const Navbar = () => {
     const handleResize = () => {
       if (window.innerWidth > 768 && sidebarOpen) {
         setSidebarOpen(false);
-        setSidebarTrainingDropdownOpen(false);
-        setSidebarCalendarDropdownOpen(false);
+        setTrainingDropdownOpen(false);
+        setCalendarDropdownOpen(false);
       }
     };
 
@@ -118,10 +128,10 @@ const Navbar = () => {
 
           {/* Training Dropdown */}
           <li className="navbar-link dropdown">
-            <div className="dropdown-toggle">
-              Training <FaChevronDown />
+            <div className="dropdown-toggle" onClick={toggleTrainingDropdown}>
+              Training <FaChevronDown className={trainingDropdownOpen ? 'rotate' : ''} />
             </div>
-            <ul className="dropdown-menu">
+            <ul className={`dropdown-menu ${trainingDropdownOpen ? 'show' : ''}`}>
               <li>
                 <Link to="/training/certified-budget-specialist" className="dropdown-link">
                   Certified Budget Specialist (CBS)
@@ -262,10 +272,10 @@ const Navbar = () => {
 
           {/* Training Calendar Dropdown */}
           <li className="navbar-link dropdown">
-            <div className="dropdown-toggle">
-              Training Calendar <FaChevronDown />
+            <div className="dropdown-toggle" onClick={toggleCalendarDropdown}>
+              Training Calendar <FaChevronDown className={calendarDropdownOpen ? 'rotate' : ''} />
             </div>
-            <ul className="dropdown-menu">
+            <ul className={`dropdown-menu ${calendarDropdownOpen ? 'show' : ''}`}>
               <li>
                 <Link to="/calendar/upcoming-events" className="dropdown-link">
                   Upcoming Events
@@ -307,9 +317,9 @@ const Navbar = () => {
             {/* Training Dropdown in Sidebar */}
             <li className="sidebar-link dropdown">
               <div className="dropdown-toggle" onClick={toggleSidebarTrainingDropdown}>
-                Training <FaChevronDown className={sidebarTrainingDropdownOpen ? 'rotate' : ''} />
+                Training <FaChevronDown className={trainingDropdownOpen ? 'rotate' : ''} />
               </div>
-              <ul className={`dropdown-menu ${sidebarTrainingDropdownOpen ? 'show' : ''}`}>
+              <ul className={`dropdown-menu ${trainingDropdownOpen ? 'show' : ''}`}>
                 <li>
                   <Link
                     to="/training/certified-budget-specialist"
@@ -559,9 +569,306 @@ const Navbar = () => {
             {/* Training Calendar Dropdown in Sidebar */}
             <li className="sidebar-link dropdown">
               <div className="dropdown-toggle" onClick={toggleSidebarCalendarDropdown}>
-                Training Calendar <FaChevronDown className={sidebarCalendarDropdownOpen ? 'rotate' : ''} />
+                Training Calendar <FaChevronDown className={calendarDropdownOpen ? 'rotate' : ''} />
               </div>
-              <ul className={`dropdown-menu ${sidebarCalendarDropdownOpen ? 'show' : ''}`}>
+              <ul className={`dropdown-menu ${calendarDropdownOpen ? 'show' : ''}`}>
+                <li>
+                  <Link to="/calendar/upcoming-events" className="dropdown-link" onClick={toggleSidebar}>
+                    Upcoming Events
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/calendar/past-events" className="dropdown-link" onClick={toggleSidebar}>
+                    Past Events
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/calendar/online-trainings" className="dropdown-link" onClick={toggleSidebar}>
+                    Online Trainings
+                  </Link>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        {/* Sidebar (Visible on small screens when sidebarOpen is true) */}
+        <div className={`sidebar ${sidebarOpen ? 'active' : ''}`}>
+          <ul className="sidebar-list">
+            <li>
+              <Link to="/" className="sidebar-link" onClick={toggleSidebar}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/about-us" className="sidebar-link" onClick={toggleSidebar}>
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link to="/consulting" className="sidebar-link" onClick={toggleSidebar}>
+                Consulting
+              </Link>
+            </li>
+
+            {/* Training Dropdown in Sidebar */}
+            <li className="sidebar-link dropdown">
+              <div className="dropdown-toggle" onClick={toggleSidebarTrainingDropdown}>
+                Training <FaChevronDown className={trainingDropdownOpen ? 'rotate' : ''} />
+              </div>
+              <ul className={`dropdown-menu ${trainingDropdownOpen ? 'show' : ''}`}>
+                <li>
+                  <Link
+                    to="/training/certified-budget-specialist"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Certified Budget Specialist (CBS)
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/certified-monitoring-evaluation-professional"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Certified Monitoring and Evaluation Professional (CMEP)
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/advanced-excel"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Advanced Excel and Data Manipulation
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/disaster-risk-management"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Certified Disaster Risk Management
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/project-management-development"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Project Management Development
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/public-investment-management"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Public Investment Management (PIM)
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/public-asset-management"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Public Asset Management
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/public-private-partnership"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Public-Private Partnership (PPP) Certification Program
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/public-procurement-course"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Public Procurement Course Outline
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/property-law-conveyancing"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Property Law and Conveyancing Certification
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/work-planning-strategy-execution"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    The Work Planning and Strategy Execution
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/customer-service-excellence"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Customer Service Excellence
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/consumer-complaints-handling"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Consumer Complaints Handling and Resolution
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/conflict-resolution-skills"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Conflict Resolution Skills
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/change-management"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Change Management
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/enterprise-risk-management"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Enterprise Risk Management
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/sustainable-management-environmental-rehabilitation"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Sustainable Management and Environmental Rehabilitation
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/public-complaints-handling"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Public Complaints Handling and Resolution
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/procurement-contracts-management"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Procurement & Contracts Management
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/occupational-health-safety"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Occupational Health & Safety
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/operations-efficiency-management"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Operations Efficiency & Effective Management
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/corporate-governance"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Corporate Governance Training Course
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/strategic-leadership-management"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Strategic Leadership & Management Training Program
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/leadership-development-program"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Leadership Development Training Program
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/leadership-governance-health-systems"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Leadership and Governance in Health Systems
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/health-care-financing"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Health Care Financing: Principles, Policies, and Practices
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/training/ethics-integrity-compliance"
+                    className="dropdown-link"
+                    onClick={toggleSidebar}
+                  >
+                    Ethics, Integrity, Compliance and Corruption Prevention
+                  </Link>
+                </li>
+              </ul>
+            </li>
+
+            {/* Training Calendar Dropdown in Sidebar */}
+            <li className="sidebar-link dropdown">
+              <div className="dropdown-toggle" onClick={toggleSidebarCalendarDropdown}>
+                Training Calendar <FaChevronDown className={calendarDropdownOpen ? 'rotate' : ''} />
+              </div>
+              <ul className={`dropdown-menu ${calendarDropdownOpen ? 'show' : ''}`}>
                 <li>
                   <Link to="/calendar/upcoming-events" className="dropdown-link" onClick={toggleSidebar}>
                     Upcoming Events

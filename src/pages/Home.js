@@ -80,6 +80,26 @@ const Home = () => {
         </div>
       </div>
 
+      {/* About Us Section */}
+      <div className="full-width-section about-us-background">
+        <div className="section-container">
+          <h2>About Us</h2>
+          <p>
+            <strong>We Deliver Enduring Results</strong>
+            <br />
+            Expro MS Training & Consulting Ltd is a transformational training and
+            consulting company that delivers corporate training, consulting,
+            coaching, and workshop services.
+          </p>
+          <p>
+            Our management facilitators and consultants have many years of
+            experience transforming people & performance in leading organisations
+            in Africa. We support organisations in becoming thriving places to
+            work, connect and succeed.
+          </p>
+        </div>
+      </div>
+
       {/* About Expro MS Section */}
       <div className="full-width-section about-expro-background">
         <div className="section-container">
@@ -128,15 +148,15 @@ const Home = () => {
       <footer className="footer">
         <div className="section-container footer-content">
           <div className="footer-left">
-            <h3>CONTACT DETAILS</h3>
-            <h4>Kenya Office</h4>
-            <p>St. Georges House, 4th Floor, Parliament Road</p>
-            <p>P.O. Box 48564 - 00200 Nairobi, Kenya</p>
-            <p>Tel: 020 2395380 | Cell: +254 720090959</p>
-            <p>Email: jimkelly@expromsconsulting.com</p>
-            <h4>Rwanda Office</h4>
-            <p>KN 14 Avenue Plot 43 Kigali, Rwanda</p>
-            <p>Tel: +250724128627</p>
+            <h3>BizNest</h3>
+            <p>We help global leaders with their organization's most critical issues and opportunities.</p>
+          </div>
+          <div className="footer-middle">
+            <h3>Head Office</h3>
+            <p>Anniversary Towers, University Way</p>
+            <p>Nairobi, Kenya</p>
+            <p>jimkelly@expromsconsulting.com</p>
+            <p>+254724402062</p>
           </div>
           <div className="footer-right">
             <h3>Consulting Services</h3>
