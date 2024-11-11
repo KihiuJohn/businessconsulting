@@ -23,7 +23,7 @@ const Navbar = () => {
   // Toggle sidebar visibility
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
-    // Close dropdowns when sidebar is toggled
+    // Close dropdowns when sidebar is toggled off
     if (sidebarOpen) {
       setTrainingDropdownOpen(false);
       setCalendarDropdownOpen(false);
@@ -33,11 +33,19 @@ const Navbar = () => {
   // Toggle Training dropdown
   const toggleTrainingDropdown = () => {
     setTrainingDropdownOpen(!trainingDropdownOpen);
+    // Close the other dropdown when one is toggled
+    if (!trainingDropdownOpen) {
+      setCalendarDropdownOpen(false);
+    }
   };
 
   // Toggle Training Calendar dropdown
   const toggleCalendarDropdown = () => {
     setCalendarDropdownOpen(!calendarDropdownOpen);
+    // Close the other dropdown when one is toggled
+    if (!calendarDropdownOpen) {
+      setTrainingDropdownOpen(false);
+    }
   };
 
   // Handle navbar background on scroll
@@ -123,7 +131,7 @@ const Navbar = () => {
         <div className="navbar-content">
           {/* Logo */}
           <div className="navbar-logo">
-            <Link to="/">
+            <Link to="/" onClick={() => { closeSidebar(); }}>
               <img src={logo} alt="Company Logo" />
             </Link>
           </div>
@@ -242,6 +250,13 @@ const Navbar = () => {
       </nav>
     </>
   );
+
+  // Helper function to close sidebar and dropdowns
+  function closeSidebar() {
+    setSidebarOpen(false);
+    setTrainingDropdownOpen(false);
+    setCalendarDropdownOpen(false);
+  }
 };
 
 export default Navbar;

@@ -9,7 +9,7 @@ body {
 .full-width-section {
   width: 100%;
   padding: 60px 0; /* Increased padding for better spacing */
-  margin-top: 20px; /* Ensure sections below the top panel have spacing */
+  /* margin-top: 20px; Ensure sections below the top panel have spacing */
 }
 
 /* Vibrant Background Colors for Each Section */
@@ -217,7 +217,6 @@ ul li {
     padding: 10px 15px; /* Adjust padding for smaller screens */
     background-color: rgba(0, 0, 0, 0.7); /* Slightly darker for readability */
     border-radius: 0; /* Remove rounded corners */
-    margin-top: 10px; /* Add spacing from the image */
   }
 
   .top-panel-content h1 {
@@ -238,7 +237,6 @@ ul li {
   /* Section below the top panel */
   .full-width-section {
     padding: 40px 0;
-    margin-top: 20px;
   }
 
   /* Grid-item adjustments */
