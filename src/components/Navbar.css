@@ -74,7 +74,7 @@
   display: none;
   font-size: 24px;
   cursor: pointer;
-  color: #333;
+  color: #ffffff; /* White icon */
 }
 
 /* Navbar List (Visible on large screens) */
@@ -90,7 +90,7 @@
 .navbar-link {
   position: relative;
   text-decoration: none;
-  color: #333;
+  color: #ffffff; /* Changed to white */
   font-size: 16px;
   font-weight: bold;
   transition: color 0.3s ease;
@@ -98,7 +98,7 @@
 }
 
 .navbar-link:hover {
-  color: #007bb5;
+  color: #00d4ff; /* Hover effect to light blue */
 }
 
 /* Dropdown Styling */
@@ -128,7 +128,7 @@
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   list-style: none;
-  padding: 5px 0; /* Reduced padding */
+  padding: 5px 0;
   margin: 0;
   z-index: 200;
   width: 250px;
@@ -139,13 +139,13 @@
 }
 
 .dropdown-menu li {
-  padding: 5px 15px; /* Increased horizontal padding for better click area */
+  padding: 5px 15px;
 }
 
 .dropdown-menu li a {
   text-decoration: none;
-  color: #333;
-  font-size: 14px; /* Slightly larger font size for better readability */
+  color: #333333; /* Dropdown item color */
+  font-size: 14px;
   font-weight: 500;
   display: block;
   transition: background-color 0.2s, color 0.2s;
@@ -153,21 +153,21 @@
 
 .dropdown-menu li a:hover {
   color: #007bb5;
-  background-color: #f1f1f1; /* Added hover effect */
+  background-color: #f1f1f1;
 }
 
 /* Sidebar Styling */
 .sidebar {
   position: fixed;
   top: 0;
-  left: -250px; /* Hidden by default */
+  left: -250px;
   width: 250px;
   height: 100%;
   background-color: #ffffff;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
   transition: left 0.3s ease-in-out;
   z-index: 1100;
-  padding-top: 60px; /* Space for navbar */
+  padding-top: 60px;
 }
 
 .sidebar.active {
@@ -184,7 +184,7 @@
   display: block;
   padding: 15px 20px;
   text-decoration: none;
-  color: #333;
+  color: #333333;
   font-size: 16px;
   font-weight: bold;
   transition: background 0.3s, color 0.3s;
@@ -261,6 +261,6 @@
   }
 
   .dropdown-menu {
-    width: 200px; /* Adjust width for smaller screens */
+    width: 200px;
   }
 }
