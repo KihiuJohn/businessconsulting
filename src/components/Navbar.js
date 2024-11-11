@@ -14,6 +14,8 @@ import './Navbar.css';
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [trainingDropdownOpen, setTrainingDropdownOpen] = useState(false);
+  const [calendarDropdownOpen, setCalendarDropdownOpen] = useState(false);
   const [navbarBackground, setNavbarBackground] = useState(
     'linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0))'
   );
@@ -21,6 +23,21 @@ const Navbar = () => {
   // Toggle sidebar visibility
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
+    // Close dropdowns when sidebar is toggled
+    if (sidebarOpen) {
+      setTrainingDropdownOpen(false);
+      setCalendarDropdownOpen(false);
+    }
+  };
+
+  // Toggle Training dropdown
+  const toggleTrainingDropdown = () => {
+    setTrainingDropdownOpen(!trainingDropdownOpen);
+  };
+
+  // Toggle Training Calendar dropdown
+  const toggleCalendarDropdown = () => {
+    setCalendarDropdownOpen(!calendarDropdownOpen);
   };
 
   // Handle navbar background on scroll
@@ -46,6 +63,8 @@ const Navbar = () => {
     const handleResize = () => {
       if (window.innerWidth > 768 && sidebarOpen) {
         setSidebarOpen(false);
+        setTrainingDropdownOpen(false);
+        setCalendarDropdownOpen(false);
       }
     };
 
@@ -142,10 +161,10 @@ const Navbar = () => {
 
           {/* Training Dropdown */}
           <li className="navbar-link dropdown">
-            <div className="dropdown-toggle">
-              Training <FaChevronDown />
+            <div className="dropdown-toggle" onClick={toggleTrainingDropdown}>
+              Training <FaChevronDown className={trainingDropdownOpen ? 'rotate' : ''} />
             </div>
-            <ul className="dropdown-menu">
+            <ul className={`dropdown-menu ${trainingDropdownOpen ? 'show' : ''}`}>
               {trainingDropdownItems.map((item, index) => (
                 <li key={index}>
                   <Link to={item.path} className="dropdown-link">
@@ -158,10 +177,10 @@ const Navbar = () => {
 
           {/* Training Calendar Dropdown */}
           <li className="navbar-link dropdown">
-            <div className="dropdown-toggle">
-              Training Calendar <FaChevronDown />
+            <div className="dropdown-toggle" onClick={toggleCalendarDropdown}>
+              Training Calendar <FaChevronDown className={calendarDropdownOpen ? 'rotate' : ''} />
             </div>
-            <ul className="dropdown-menu">
+            <ul className={`dropdown-menu ${calendarDropdownOpen ? 'show' : ''}`}>
               {calendarDropdownItems.map((item, index) => (
                 <li key={index}>
                   <Link to={item.path} className="dropdown-link">
@@ -186,10 +205,10 @@ const Navbar = () => {
 
             {/* Sidebar Training Dropdown */}
             <li className="sidebar-link dropdown">
-              <div className="dropdown-toggle">
-                Training <FaChevronDown />
+              <div className="dropdown-toggle" onClick={toggleTrainingDropdown}>
+                Training <FaChevronDown className={trainingDropdownOpen ? 'rotate' : ''} />
               </div>
-              <ul className="dropdown-menu">
+              <ul className={`dropdown-menu ${trainingDropdownOpen ? 'show' : ''}`}>
                 {trainingDropdownItems.map((item, index) => (
                   <li key={index}>
                     <Link to={item.path} className="dropdown-link" onClick={toggleSidebar}>
@@ -202,10 +221,10 @@ const Navbar = () => {
 
             {/* Sidebar Training Calendar Dropdown */}
             <li className="sidebar-link dropdown">
-              <div className="dropdown-toggle">
-                Training Calendar <FaChevronDown />
+              <div className="dropdown-toggle" onClick={toggleCalendarDropdown}>
+                Training Calendar <FaChevronDown className={calendarDropdownOpen ? 'rotate' : ''} />
               </div>
-              <ul className="dropdown-menu">
+              <ul className={`dropdown-menu ${calendarDropdownOpen ? 'show' : ''}`}>
                 {calendarDropdownItems.map((item, index) => (
                   <li key={index}>
                     <Link to={item.path} className="dropdown-link" onClick={toggleSidebar}>
