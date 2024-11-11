@@ -1,14 +1,18 @@
 /* src/components/Navbar.css */
 
-/* Navbar Container */
+/* Navbar Container with Gradient Background */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0); /* Fully transparent background */
+  z-index: 1200; /* Increased z-index to be above the sidebar */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  ); /* Faint white fading to transparent */
   transition: background 0.3s ease-in-out;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: none; /* Remove solid shadow */
 }
 
 /* Navbar Content Wrapper */
@@ -30,7 +34,7 @@
 /* Contact Section */
 .navbar-contact {
   display: flex;
-  gap: 40px; /* Increased gap between contact items */
+  gap: 20px; /* Increased gap between contact items */
   align-items: center;
 }
 
@@ -63,18 +67,19 @@
   border-radius: 5px;
   font-size: 12px;
   cursor: pointer;
+  margin-top: 5px;
 }
 
 .inquiry-button:hover {
   background-color: #007bb5;
 }
 
-/* Hamburger Menu Icon (Hidden on large screens) */
+/* Hamburger Menu Icon (Visible on small screens) */
 .navbar-hamburger {
   display: none;
   font-size: 24px;
   cursor: pointer;
-  color: #ffffff; /* White icon */
+  color: #ffffff; /* Changed to white for better visibility */
 }
 
 /* Navbar List (Visible on large screens) */
@@ -106,17 +111,16 @@
   position: relative;
 }
 
-/* Dropdown Toggle */
 .dropdown-toggle {
   display: flex;
   align-items: center;
 }
 
-/* Rotate Chevron when dropdown is open */
-.rotate {
+/* Rotate Chevron when dropdown is open - Removed as it's no longer needed */
+/*.rotate {
   transform: rotate(180deg);
   transition: transform 0.3s ease;
-}
+}*/
 
 /* Dropdown Menu Styling */
 .dropdown-menu {
@@ -128,13 +132,13 @@
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   list-style: none;
-  padding: 5px 0;
+  padding: 10px 0;
   margin: 0;
   z-index: 200;
   width: 250px;
 }
 
-.navbar-link.dropdown:hover .dropdown-menu {
+.dropdown:hover .dropdown-menu {
   display: block;
 }
 
@@ -160,18 +164,19 @@
 .sidebar {
   position: fixed;
   top: 0;
-  left: -250px;
-  width: 250px;
+  right: -60vw; /* Hidden by default, occupies 60% of viewport width */
+  width: 60vw;
   height: 100%;
   background-color: #ffffff;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
-  transition: left 0.3s ease-in-out;
-  z-index: 1100;
-  padding-top: 60px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease-in-out;
+  z-index: 1100; /* Below the navbar's z-index of 1200 */
+  overflow-y: auto;
+  padding-top: 20px; /* Space for close icon */
 }
 
 .sidebar.active {
-  left: 0;
+  right: 0;
 }
 
 .sidebar-list {
@@ -211,7 +216,8 @@
 .sidebar-link.dropdown .dropdown-menu {
   display: none;
   list-style: none;
-  padding-left: 20px;
+  padding-left: 0;
+  margin: 0;
 }
 
 .sidebar-link.dropdown .dropdown-menu.show {
@@ -219,12 +225,17 @@
 }
 
 .sidebar-link.dropdown .dropdown-menu li {
-  padding: 10px 0;
+  padding: 10px 20px;
 }
 
 .sidebar-link.dropdown .dropdown-menu li a {
   font-size: 14px;
   font-weight: 500;
+  color: #333333;
+}
+
+.sidebar-link.dropdown .dropdown-menu li a:hover {
+  color: #007bb5;
 }
 
 /* Overlay Styling */
@@ -235,7 +246,7 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1050;
+  z-index: 1050; /* Below the navbar's z-index of 1200 but above the sidebar */
 }
 
 /* Responsive Adjustments */
@@ -255,12 +266,33 @@
     display: none;
   }
 
-  /* Adjust sidebar styles if needed */
+  /* Sidebar width remains 60vw */
   .sidebar {
-    width: 250px;
+    width: 60vw;
+    right: -60vw;
   }
 
-  .dropdown-menu {
-    width: 200px;
+  .sidebar.active {
+    right: 0;
+  }
+
+  /* Adjust dropdown menu styles within sidebar */
+  .sidebar-link.dropdown .dropdown-menu {
+    width: 100%;
+    position: static;
+    background: none;
+    box-shadow: none;
+  }
+
+  .sidebar-link.dropdown .dropdown-menu li {
+    padding: 10px 20px;
+  }
+
+  .sidebar-link.dropdown .dropdown-menu li a {
+    color: #333333;
+  }
+
+  .sidebar-link.dropdown .dropdown-menu li a:hover {
+    color: #007bb5;
   }
 }

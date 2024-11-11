@@ -1,3 +1,5 @@
+/* src/pages/Home.css */
+
 /* General Styling */
 body {
   margin: 0;
@@ -8,26 +10,27 @@ body {
 /* Section Styling */
 .full-width-section {
   width: 100%;
-  padding: 40px 0;
+  padding: 60px 0; /* Increased padding for better spacing */
 }
 
+/* Vibrant Background Colors for Each Section */
 .services-background {
-  background-color: #015c9e;
+  background-color: #015c8b; /* Professional blue background */
   color: white;
 }
 
 .about-us-background {
-  background-color: white;
+  background-color: white; /* White background */
   color: #333333;
 }
 
-.about-expro-background {
-  background-color: #015c9e;
+.vision-mission-background {
+  background-color: #015c8b; /* Professional blue background */
   color: white;
 }
 
-.vision-mission-background {
-  background-color: white;
+.another-section-background { /* Example for additional sections */
+  background-color: white; /* White background */
   color: #333333;
 }
 
@@ -43,12 +46,24 @@ h2,
 h3 {
   color: inherit;
   margin-bottom: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1, h2, h3 {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 /* Paragraphs */
 p {
   margin-bottom: 20px;
   line-height: 1.6;
+  font-size: 1.1rem;
 }
 
 /* Unordered List Styling */
@@ -59,6 +74,7 @@ ul {
 
 ul li {
   margin-bottom: 10px;
+  font-size: 1.05rem;
 }
 
 /* Top Panel */
@@ -83,33 +99,36 @@ ul li {
   opacity: 1;
 }
 
-/* Updated Top Panel Content */
+/* Top Panel Content */
 .top-panel-content {
   position: absolute;
   top: 56%;
   left: 5%;
   transform: translateY(-50%);
   color: white;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.6
-  ); /* Semi-transparent black for readability */
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black for readability */
   padding: 20px 30px;
   border-radius: 10px;
   max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* Navbar */
+.top-panel-content h1 {
+  font-size: 2.5rem;
+}
+
+.top-panel-content p {
+  font-size: 1.2rem;
+}
+
+/* Navbar adjustments */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100;
-  background: rgba(255, 255, 255, 0); /* Fully transparent background */
-  box-shadow: none; /* No shadow */
-  transition: background 0.3s ease-in-out;
+  z-index: 1000;
+  background: linear-gradient(to bottom, rgba(1, 92, 139, 0.9), rgba(1, 92, 139, 0.7)); /* Dark blue gradient */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Navbar Content Wrapper */
@@ -135,63 +154,162 @@ ul li {
   color: #00d4ff; /* Light blue hover effect */
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .top-panel {
-    height: 50vh; /* Further reduce height for smaller screens */
-  }
-
-  .top-panel-content {
-    top: 60%; /* Adjust for smaller screens */
-    max-width: 90%; /* Expand width */
-    padding: 15px 20px; /* Reduce padding */
-  }
-}
-
 /* Grid Layout */
-.grid-section,
-.services-grid {
+.grid-section {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 30px; /* Increased gap for better spacing */
   text-align: center;
 }
 
-.grid-item {
-  background-color: white;
-  color: #333333;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, background-color 0.3s ease;
+/* Grid Items in Blue Sections */
+.services-background .grid-item,
+.vision-mission-background .grid-item {
+  background: white; /* Light background for contrast */
+  color: #015c8b; /* Blue text for consistency */
+  padding: 40px 20px; /* Increased padding for better content spacing */
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
-.grid-item:hover {
+.services-background .grid-item:hover,
+.vision-mission-background .grid-item:hover {
   transform: translateY(-5px);
-  background-color: #dff0f8;
-  color: #007bb5;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Grid Items in White Sections */
+.about-us-background .grid-item,
+.another-section-background .grid-item {
+  background: #f0f4f8; /* Light blue-gray background */
+  color: #015c8b; /* Blue text for consistency */
+  padding: 40px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.about-us-background .grid-item:hover,
+.another-section-background .grid-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Footer */
 .footer {
-  background-color: #333333;
+  background-color: #015c8b; /* Professional blue background */
   color: white;
-  padding: 40px 20px;
+  padding: 60px 20px;
   text-align: left;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footer-content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 40px;
 }
 
 .footer h3 {
-  font-size: 18px;
+  font-size: 1.5rem;
   margin-bottom: 15px;
+  color: #ffffff; /* White accent color for contrast */
 }
 
 .footer p {
-  font-size: 14px;
+  font-size: 1rem;
   margin-bottom: 10px;
+}
+
+.footer-map {
+  margin-top: 40px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Footer Links (if any) */
+.footer a {
+  color: #00d4ff; /* Light blue links for visibility */
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  /* Adjust grid to two columns on medium screens */
+  .grid-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Adjust grid to one column */
+  .grid-section {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+  /* Adjust top panel */
+  .top-panel {
+    height: auto; /* Allow height to adjust based on content */
+  }
+
+  .top-panel-image {
+    position: static;
+    opacity: 1;
+    width: 100%;
+    height: auto;
+    transition: none;
+    display: none; /* Hide all images by default */
+  }
+
+  .top-panel-image.active {
+    display: block; /* Only display the active image */
+  }
+
+  .top-panel-content {
+    position: absolute; /* Keep it over the image */
+    bottom: 0; /* Position at the bottom */
+    left: 0;
+    width: 100%; /* Span full width */
+    transform: translateY(0); /* Remove any translation */
+    padding: 15px 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* Transparent black background */
+    border-radius: 0; /* Remove border radius */
+    box-shadow: none; /* Remove box shadow */
+    margin-top: 0; /* Remove top margin */
+  }
+
+  /* Reduce padding in sections */
+  .full-width-section {
+    padding: 40px 0;
+  }
+
+  /* Adjust grid-item padding */
+  .grid-item {
+    padding: 30px 15px;
+  }
+
+  /* Adjust footer map height */
+  .footer-map iframe {
+    height: 200px;
+  }
 }

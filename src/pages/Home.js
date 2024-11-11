@@ -1,3 +1,5 @@
+// src/pages/Home.js
+
 import React, { useState, useEffect } from 'react';
 import './Home.css';
 import conferenceImage1 from '../assets/images/conferenceimage1.jpg';
@@ -14,10 +16,10 @@ const Home = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((currentIndex) => (currentIndex + 1) % images.length);
-    }, 4000); // Change image every 4 seconds
+    }, 4000);
 
     return () => clearInterval(interval);
-  }, [images.length]); // Ensure the dependency array includes images.length
+  }, [images.length]);
 
   return (
     <div className="home-container">
@@ -45,52 +47,30 @@ const Home = () => {
         <div className="section-container">
           <div className="grid-section">
             <div className="grid-item">
-              <FaLaptop size={50} />
+              <FaLaptop size={50} color="#ffffff" />
               <h3>Training & Consultancy</h3>
+              <p>Empowering your workforce with top-notch training solutions.</p>
             </div>
             <div className="grid-item">
-              <FaChartPie size={50} />
-              <h3>Data Analytics & Visualisation</h3>
+              <FaChartPie size={50} color="#ffffff" />
+              <h3>Data Analytics & Visualization</h3>
+              <p>Transforming data into actionable insights.</p>
             </div>
             <div className="grid-item">
-              <FaCalendarAlt size={50} />
+              <FaCalendarAlt size={50} color="#ffffff" />
               <h3>Training Calendar</h3>
+              <p>Stay updated with our latest training sessions.</p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* About Us Section */}
+      {/* About Expro MS Training & Consulting Ltd Section */}
       <div className="full-width-section about-us-background">
-        <div className="section-container">
-          <h2>About Us</h2>
-          <p>
-            <strong>We Deliver Enduring Results</strong>
-            <br />
-            Expro MS Training & Consulting Ltd is a transformational training and consulting company that delivers
-            corporate training, consulting, coaching, and workshop services.
-          </p>
-          <p>
-            Our management facilitators and consultants have many years of experience transforming people & performance
-            in leading organisations in Africa. We support organisations in becoming thriving places to work, connect
-            and succeed.
-          </p>
-        </div>
-      </div>
-
-      {/* About Expro MS Section */}
-      <div className="full-width-section about-expro-background">
         <div className="section-container">
           <h2>About Expro MS Training & Consulting Ltd</h2>
           <p>
-            Founded in 2018, Expro MS Training & Consultant Ltd has positioned itself in the market as a fast-growing and
-            transformative consultant services provider. Our theory of change is anchored on solid theoretical training
-            in Monitoring and Evaluation, Business Management, Strategic Management, and Customer Services, among
-            others, ensuring high-impact interventions.
-          </p>
-          <p>
-            We are registered by the Registrar of Companies in Kenya, affirming the quality of our programs. We partner
-            with international consulting organizations on high-impact training and mentorship programs.
+            Founded in 2018, Expro MS Training & Consultant Ltd has positioned itself in the market as a fast-growing and transformative consultant services provider. Our theory of change is anchored on a hybrid of solid theoretical training in Monitoring and Evaluation, Business Management, Strategic Management, Customer Services, Enterprise Risk Management, Root Cause Analysis, Project Management, among others, ensuring high-impact interventions. We are registered with the Registrar of Companies in Kenya, an affirmation of the quality of our programs. The organization is also a partner with other international consulting organizations including Global Leadership Institute, Global Governance and Leadership Center, Africa Consultum, among others, on a high-impact training and mentorship programme known as "Start and Increase Efficiency." Our clientele includes Governments, Small and Medium Enterprises, Parastatals, Financial Institutions, NGOs, and Consultancy firms.
           </p>
         </div>
       </div>
@@ -99,7 +79,7 @@ const Home = () => {
       <div className="full-width-section vision-mission-background">
         <div className="section-container">
           <h2>Our Vision</h2>
-          <p>To be an oasis for the social-economic transformation in Kenya and beyond through enterprise development services.</p>
+          <p>To be an oasis for the socio-economic transformation in Kenya and beyond through enterprise development services.</p>
           <h2>Our Mission</h2>
           <p>We provide client-centered trainings and results-oriented solutions to promote enterprise growth and development.</p>
           <h2>Our Core Values</h2>
@@ -117,23 +97,36 @@ const Home = () => {
 
       {/* Footer */}
       <footer className="footer">
-        <div className="section-container footer-content">
-          <div className="footer-left">
-            <h3>BizNest</h3>
-            <p>We help global leaders with their organization's most critical issues and opportunities.</p>
+        <div className="footer-container">
+          <div className="footer-content">
+            <div className="footer-left">
+              <h3>BizNest</h3>
+              <p>We help global leaders with their organization's most critical issues and opportunities.</p>
+            </div>
+            <div className="footer-middle">
+              <h3>Head Office</h3>
+              <p>Anniversary Towers, University Way</p>
+              <p>Nairobi, Kenya</p>
+              <p>jimkelly@expromsconsulting.com</p>
+              <p>+254724402062</p>
+            </div>
+            <div className="footer-right">
+              <h3>Consulting Services</h3>
+              <p>Advanced Analytics</p>
+              <p>Change Management</p>
+              <p>Corporate Finance</p>
+            </div>
           </div>
-          <div className="footer-middle">
-            <h3>Head Office</h3>
-            <p>Anniversary Towers, University Way</p>
-            <p>Nairobi, Kenya</p>
-            <p>jimkelly@expromsconsulting.com</p>
-            <p>+254724402062</p>
-          </div>
-          <div className="footer-right">
-            <h3>Consulting Services</h3>
-            <p>Advanced Analytics</p>
-            <p>Change Management</p>
-            <p>Corporate Finance</p>
+          <div className="footer-map">
+            <iframe
+              title="Expro Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.518314234123!2d36.81563261511671!3d-1.283253099072219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10fda5556c0f%3A0x4627f7bc0d7364c7!2sAnniversary%20Towers!5e0!3m2!1sen!2ske!4v1699289236451!5m2!1sen!2ske"
+              width="100%"
+              height="300"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+            ></iframe>
           </div>
         </div>
       </footer>
