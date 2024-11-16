@@ -1,11 +1,12 @@
+// src/pages/Training.js
+
 import React from 'react';
+import TrainingDetail from './TrainingDetail'; // Reuse TrainingDetail component
+import trainingData from '../data/trainingData'; // Import Training Data
 
 const Training = () => {
   return (
-    <div>
-      <h1>Training Programs</h1>
-      <p>Enhance your skills with our expert-led training sessions.</p>
-    </div>
+    <TrainingDetail trainingData={trainingData} />
   );
 };
 

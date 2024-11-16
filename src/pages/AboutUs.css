@@ -1,0 +1,99 @@
+/* src/pages/AboutUs.css */
+
+/* General Container Styles */
+.about-us-container {
+  font-family: "Avenir", sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* About Us Content Section */
+.about-us-content {
+  margin-top: 100px; /* Ensures content isn't hidden behind the navbar */
+}
+
+/* Section Container */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Headings */
+.about-us-content h2,
+.vision-mission-values h2 {
+  font-size: 28px;
+  color: #027778;
+  margin-bottom: 20px;
+}
+
+/* Paragraphs - Justified Text */
+.about-us-content p,
+.vision-mission-values p {
+  line-height: 1.8;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: justify; /* Added for text justification */
+  text-justify: inter-word; /* Enhances word spacing for better justification */
+  hyphens: auto; /* Enables hyphenation */
+  max-width: 1200px; /* Limits line length for better readability */
+}
+
+/* Unordered Lists */
+.vision-mission-values ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+/* List Items - Optional Justification */
+.vision-mission-values li {
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-align: justify; /* Optional: Justify list item text as well */
+  text-justify: inter-word;
+  hyphens: auto; /* Enables hyphenation */
+}
+
+/* Responsive Adjustments */
+
+/* Medium Devices (Tablets) */
+@media (max-width: 992px) {
+  .about-us-content h2,
+  .vision-mission-values h2 {
+    font-size: 24px;
+  }
+
+  .about-us-content p,
+  .vision-mission-values p,
+  .vision-mission-values li {
+    font-size: 16px;
+    text-align: justify; /* Ensure justification remains */
+    hyphens: auto; /* Maintain hyphenation */
+  }
+
+  .about-us-content,
+  .vision-mission-values {
+    margin-top: 80px; /* Reduced margin for medium screens */
+  }
+}
+
+/* Small Devices (Mobile Phones) */
+@media (max-width: 768px) {
+  .about-us-content h2,
+  .vision-mission-values h2 {
+    font-size: 20px;
+  }
+
+  .about-us-content p,
+  .vision-mission-values p,
+  .vision-mission-values li {
+    font-size: 14px;
+    text-align: justify; /* Ensure justification remains */
+    hyphens: auto; /* Maintain hyphenation */
+  }
+
+  .about-us-content,
+  .vision-mission-values {
+    margin-top: 60px; /* Further reduced margin for small screens */
+  }
+}

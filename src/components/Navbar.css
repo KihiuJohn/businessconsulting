@@ -1,5 +1,3 @@
-/* src/components/Navbar.css */
-
 /* Navbar Container with Gradient Background */
 .navbar {
   position: fixed;
@@ -60,7 +58,7 @@
 }
 
 .inquiry-button {
-  background-color: #00d4ff;
+  background-color: #007bb5;
   color: white;
   border: none;
   padding: 6px 10px;
@@ -71,7 +69,7 @@
 }
 
 .inquiry-button:hover {
-  background-color: #007bb5;
+  background-color: #005f87;
 }
 
 /* Hamburger Menu Icon (Visible on small screens) */
@@ -79,7 +77,7 @@
   display: none;
   font-size: 24px;
   cursor: pointer;
-  color: #ffffff; /* Changed to white for better visibility */
+  color: #595959; /* Changed to white for better visibility */
 }
 
 /* Navbar List (Visible on large screens) */
@@ -95,7 +93,7 @@
 .navbar-link {
   position: relative;
   text-decoration: none;
-  color: #ffffff; /* Changed to white */
+  color: #007bb5; /* Darker menu item color */
   font-size: 16px;
   font-weight: bold;
   transition: color 0.3s ease;
@@ -103,7 +101,7 @@
 }
 
 .navbar-link:hover {
-  color: #00d4ff; /* Hover effect to light blue */
+  color: #005f87; /* Even darker hover color */
 }
 
 /* Dropdown Styling */
@@ -115,12 +113,6 @@
   display: flex;
   align-items: center;
 }
-
-/* Rotate Chevron when dropdown is open - Removed as it's no longer needed */
-/*.rotate {
-  transform: rotate(180deg);
-  transition: transform 0.3s ease;
-}*/
 
 /* Dropdown Menu Styling */
 .dropdown-menu {
@@ -148,7 +140,7 @@
 
 .dropdown-menu li a {
   text-decoration: none;
-  color: #333333; /* Dropdown item color */
+  color: #007bb5; /* Darker dropdown item color */
   font-size: 14px;
   font-weight: 500;
   display: block;
@@ -156,8 +148,8 @@
 }
 
 .dropdown-menu li a:hover {
-  color: #007bb5;
-  background-color: #f1f1f1;
+  color: #005f87; /* Even darker hover color for dropdown */
+  background-color: #f1f1f1; /* Light background for hover effect */
 }
 
 /* Sidebar Styling */
@@ -180,6 +172,8 @@
 }
 
 .sidebar-list {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
   list-style: none;
   padding: 0;
   margin: 0;
@@ -187,9 +181,10 @@
 
 .sidebar-link {
   display: block;
+  width: 100%;
   padding: 15px 20px;
   text-decoration: none;
-  color: #333333;
+  color: #007bb5; /* Darker sidebar menu item color */
   font-size: 16px;
   font-weight: bold;
   transition: background 0.3s, color 0.3s;
@@ -197,15 +192,20 @@
 
 .sidebar-link:hover {
   background-color: #f1f1f1;
-  color: #007bb5;
+  color: #005f87; /* Even darker hover color */
 }
 
 /* Sidebar Dropdown Styling */
+.sidebar-link.dropdown {
+  position: relative;
+}
+
 .sidebar-link.dropdown .dropdown-toggle {
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  padding: 15px 20px; /* Ensure padding matches other sidebar links */
 }
 
 .sidebar-link.dropdown .dropdown-toggle .rotate {
@@ -215,13 +215,14 @@
 
 .sidebar-link.dropdown .dropdown-menu {
   display: none;
+  flex-direction: column; /* Ensure vertical stacking */
   list-style: none;
   padding-left: 0;
   margin: 0;
 }
 
 .sidebar-link.dropdown .dropdown-menu.show {
-  display: block;
+  display: flex;
 }
 
 .sidebar-link.dropdown .dropdown-menu li {
@@ -231,11 +232,23 @@
 .sidebar-link.dropdown .dropdown-menu li a {
   font-size: 14px;
   font-weight: 500;
-  color: #333333;
+  color: #007bb5; /* Sidebar dropdown item color */
+  text-decoration: none;
 }
 
 .sidebar-link.dropdown .dropdown-menu li a:hover {
-  color: #007bb5;
+  color: #005f87; /* Even darker hover color */
+}
+
+/* Rotate the dropdown icon when active */
+.rotate {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+/* Optional: Add spacing between text and icon */
+.sidebar-link.dropdown .dropdown-toggle svg {
+  margin-left: 8px; /* Adjust as needed */
 }
 
 /* Overlay Styling */
@@ -289,10 +302,56 @@
   }
 
   .sidebar-link.dropdown .dropdown-menu li a {
-    color: #333333;
+    color: #007bb5;
   }
 
   .sidebar-link.dropdown .dropdown-menu li a:hover {
-    color: #007bb5;
+    color: #005f87;
   }
+
+  /* **New Additions for Smaller Devices (<769px)** */
+
+  /* Reduce padding to make navbar height smaller */
+  .navbar-content {
+    padding: 5px 15px; /* Reduced from 10px 20px */
+  }
+
+  /* Make logo smaller */
+  .navbar-logo img {
+    height: 50px; /* Reduced from 70px */
+  }
+
+  /* Optionally, reduce font sizes for nav links */
+  .navbar-link {
+    font-size: 14px; /* Reduced from 16px */
+  }
+
+  .dropdown-menu {
+    width: 200px; /* Optional: adjust width for smaller screens */
+  }
+
+  /* Adjust inquiry button size if necessary */
+  .inquiry-button {
+    padding: 4px 8px; /* Reduced padding */
+    font-size: 10px; /* Reduced font size */
+  }
+
+  /* **New Padding Adjustments for Sidebar Dropdowns on Small Devices** */
+
+  /* Remove padding from the parent <li> to prevent double padding */
+  .sidebar-link.dropdown {
+    padding: 0;
+  }
+
+  /* Retain or adjust padding on the dropdown toggle */
+  .sidebar-link.dropdown .dropdown-toggle {
+    padding: 15px 20px; /* You can reduce this if needed, e.g., 10px 15px */
+  }
+
+  /* Optional: Further reduce padding if necessary */
+  /* Uncomment and adjust the values as needed
+  .sidebar-link.dropdown .dropdown-toggle {
+    padding: 10px 15px;
+  }
+  */
 }

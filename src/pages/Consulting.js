@@ -1,11 +1,12 @@
+// src/pages/Consulting.js
+
 import React from 'react';
+import ConsultingDetail from './ConsultingDetail'; // Reuse ConsultingDetail component
+import consultingData from '../data/consultingData'; // Import Consulting Data
 
 const Consulting = () => {
   return (
-    <div>
-      <h1>Consulting Services</h1>
-      <p>Get professional advice tailored to your business needs.</p>
-    </div>
+    <ConsultingDetail consultingData={consultingData} />
   );
 };
 

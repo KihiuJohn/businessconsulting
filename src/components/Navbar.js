@@ -1,7 +1,7 @@
 // src/components/Navbar.js
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import {
   FaBars,
   FaTimes,
@@ -11,10 +11,13 @@ import {
 } from 'react-icons/fa';
 import logo from '../assets/images/logo.png';
 import './Navbar.css';
+import trainingData from '../data/trainingData'; // Import Training Data
+import consultingData from '../data/consultingData'; // Import Consulting Data
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [trainingDropdownOpen, setTrainingDropdownOpen] = useState(false);
+  const [consultingDropdownOpen, setConsultingDropdownOpen] = useState(false);
   const [calendarDropdownOpen, setCalendarDropdownOpen] = useState(false);
   const [navbarBackground, setNavbarBackground] = useState(
     'linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0))'
@@ -23,9 +26,10 @@ const Navbar = () => {
   // Toggle sidebar visibility
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
-    // Close dropdowns when sidebar is toggled off
+    // Close all dropdowns when sidebar is toggled off
     if (sidebarOpen) {
       setTrainingDropdownOpen(false);
+      setConsultingDropdownOpen(false);
       setCalendarDropdownOpen(false);
     }
   };
@@ -33,8 +37,19 @@ const Navbar = () => {
   // Toggle Training dropdown
   const toggleTrainingDropdown = () => {
     setTrainingDropdownOpen(!trainingDropdownOpen);
-    // Close the other dropdown when one is toggled
+    // Close other dropdowns when one is toggled
     if (!trainingDropdownOpen) {
+      setConsultingDropdownOpen(false);
+      setCalendarDropdownOpen(false);
+    }
+  };
+
+  // Toggle Consulting dropdown
+  const toggleConsultingDropdown = () => {
+    setConsultingDropdownOpen(!consultingDropdownOpen);
+    // Close other dropdowns when one is toggled
+    if (!consultingDropdownOpen) {
+      setTrainingDropdownOpen(false);
       setCalendarDropdownOpen(false);
     }
   };
@@ -42,10 +57,19 @@ const Navbar = () => {
   // Toggle Training Calendar dropdown
   const toggleCalendarDropdown = () => {
     setCalendarDropdownOpen(!calendarDropdownOpen);
-    // Close the other dropdown when one is toggled
+    // Close other dropdowns when one is toggled
     if (!calendarDropdownOpen) {
       setTrainingDropdownOpen(false);
+      setConsultingDropdownOpen(false);
     }
+  };
+
+  // Helper function to close sidebar and dropdowns
+  const closeSidebar = () => {
+    setSidebarOpen(false);
+    setTrainingDropdownOpen(false);
+    setConsultingDropdownOpen(false);
+    setCalendarDropdownOpen(false);
   };
 
   // Handle navbar background on scroll
@@ -72,6 +96,7 @@ const Navbar = () => {
       if (window.innerWidth > 768 && sidebarOpen) {
         setSidebarOpen(false);
         setTrainingDropdownOpen(false);
+        setConsultingDropdownOpen(false);
         setCalendarDropdownOpen(false);
       }
     };
@@ -84,45 +109,19 @@ const Navbar = () => {
   const menuItems = [
     { title: 'Home', path: '/' },
     { title: 'About Us', path: '/about-us' },
-    { title: 'Consulting', path: '/consulting' },
   ];
+
+  // Consulting dropdown items
+  const consultingDropdownItems = consultingData; // Reuse consultingData
 
   // Training dropdown items
-  const trainingDropdownItems = [
-    { title: 'Certified Budget Specialist (CBS)', path: '/training/certified-budget-specialist' },
-    { title: 'Certified Monitoring and Evaluation Professional (CMEP)', path: '/training/certified-monitoring-evaluation-professional' },
-    { title: 'Advanced Excel and Data Manipulation', path: '/training/advanced-excel' },
-    { title: 'Certified Disaster Risk Management', path: '/training/disaster-risk-management' },
-    { title: 'Project Management Development', path: '/training/project-management-development' },
-    { title: 'Public Investment Management (PIM)', path: '/training/public-investment-management' },
-    { title: 'Public Asset Management', path: '/training/public-asset-management' },
-    { title: 'Public-Private Partnership (PPP) Certification Program', path: '/training/public-private-partnership' },
-    { title: 'Public Procurement Course Outline', path: '/training/public-procurement-course' },
-    { title: 'Property Law and Conveyancing Certification', path: '/training/property-law-conveyancing' },
-    { title: 'The Work Planning and Strategy Execution', path: '/training/work-planning-strategy-execution' },
-    { title: 'Customer Service Excellence', path: '/training/customer-service-excellence' },
-    { title: 'Consumer Complaints Handling and Resolution', path: '/training/consumer-complaints-handling' },
-    { title: 'Conflict Resolution Skills', path: '/training/conflict-resolution-skills' },
-    { title: 'Change Management', path: '/training/change-management' },
-    { title: 'Enterprise Risk Management', path: '/training/enterprise-risk-management' },
-    { title: 'Sustainable Management and Environmental Rehabilitation', path: '/training/sustainable-management-environmental-rehabilitation' },
-    { title: 'Public Complaints Handling and Resolution', path: '/training/public-complaints-handling' },
-    { title: 'Procurement & Contracts Management', path: '/training/procurement-contracts-management' },
-    { title: 'Occupational Health & Safety', path: '/training/occupational-health-safety' },
-    { title: 'Operations Efficiency & Effective Management', path: '/training/operations-efficiency-management' },
-    { title: 'Corporate Governance Training Course', path: '/training/corporate-governance' },
-    { title: 'Strategic Leadership & Management Training Program', path: '/training/strategic-leadership-management' },
-    { title: 'Leadership Development Training Program', path: '/training/leadership-development-program' },
-    { title: 'Leadership and Governance in Health Systems', path: '/training/leadership-governance-health-systems' },
-    { title: 'Health Care Financing: Principles, Policies, and Practices', path: '/training/health-care-financing' },
-    { title: 'Ethics, Integrity, Compliance and Corruption Prevention', path: '/training/ethics-integrity-compliance' },
-  ];
+  const trainingDropdownItems = trainingData; // Reuse trainingData
 
-  // Calendar dropdown items
+  // Training Calendar dropdown items
   const calendarDropdownItems = [
-    { title: 'Upcoming Events', path: '/calendar/upcoming-events' },
-    { title: 'Past Events', path: '/calendar/past-events' },
-    { title: 'Online Trainings', path: '/calendar/online-trainings' },
+    { title: 'Upcoming Events', path: '/training-calendar/upcoming-events' },
+    { title: 'Past Events', path: '/training-calendar/past-events' },
+    { title: 'Online Trainings', path: '/training-calendar/online-trainings' },
   ];
 
   return (
@@ -131,7 +130,7 @@ const Navbar = () => {
         <div className="navbar-content">
           {/* Logo */}
           <div className="navbar-logo">
-            <Link to="/" onClick={() => { closeSidebar(); }}>
+            <Link to="/" onClick={closeSidebar}>
               <img src={logo} alt="Company Logo" />
             </Link>
           </div>
@@ -146,7 +145,7 @@ const Navbar = () => {
             <div className="contact-item">
               <FaEnvelope className="icon" />
               <span>Email Us</span>
-              <p>expromsconsulting@gmail.com</p>
+              <p>info@expromsconsulting.com</p>
               <button className="inquiry-button">Inquiries</button>
             </div>
           </div>
@@ -161,9 +160,12 @@ const Navbar = () => {
         <ul className="navbar-list">
           {menuItems.map((item, index) => (
             <li key={index}>
-              <Link to={item.path} className="navbar-link">
+              <NavLink
+                to={item.path}
+                className={({ isActive }) => (isActive ? 'navbar-link active' : 'navbar-link')}
+              >
                 {item.title}
-              </Link>
+              </NavLink>
             </li>
           ))}
 
@@ -175,9 +177,33 @@ const Navbar = () => {
             <ul className={`dropdown-menu ${trainingDropdownOpen ? 'show' : ''}`}>
               {trainingDropdownItems.map((item, index) => (
                 <li key={index}>
-                  <Link to={item.path} className="dropdown-link">
+                  <NavLink
+                    to={item.path}
+                    className={({ isActive }) => (isActive ? 'dropdown-link active' : 'dropdown-link')}
+                    onClick={() => setTrainingDropdownOpen(false)} // Close dropdown on click
+                  >
                     {item.title}
-                  </Link>
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </li>
+
+          {/* Consulting Dropdown */}
+          <li className="navbar-link dropdown">
+            <div className="dropdown-toggle" onClick={toggleConsultingDropdown}>
+              Consulting <FaChevronDown className={consultingDropdownOpen ? 'rotate' : ''} />
+            </div>
+            <ul className={`dropdown-menu ${consultingDropdownOpen ? 'show' : ''}`}>
+              {consultingDropdownItems.map((item, index) => (
+                <li key={index}>
+                  <NavLink
+                    to={item.path}
+                    className={({ isActive }) => (isActive ? 'dropdown-link active' : 'dropdown-link')}
+                    onClick={() => setConsultingDropdownOpen(false)} // Close dropdown on click
+                  >
+                    {item.title}
+                  </NavLink>
                 </li>
               ))}
             </ul>
@@ -191,9 +217,13 @@ const Navbar = () => {
             <ul className={`dropdown-menu ${calendarDropdownOpen ? 'show' : ''}`}>
               {calendarDropdownItems.map((item, index) => (
                 <li key={index}>
-                  <Link to={item.path} className="dropdown-link">
+                  <NavLink
+                    to={item.path}
+                    className={({ isActive }) => (isActive ? 'dropdown-link active' : 'dropdown-link')}
+                    onClick={() => setCalendarDropdownOpen(false)} // Close dropdown on click
+                  >
                     {item.title}
-                  </Link>
+                  </NavLink>
                 </li>
               ))}
             </ul>
@@ -205,29 +235,39 @@ const Navbar = () => {
           <ul className="sidebar-list">
             {menuItems.map((item, index) => (
               <li key={index}>
-                <Link to={item.path} className="sidebar-link" onClick={toggleSidebar}>
+                <NavLink
+                  to={item.path}
+                  className={({ isActive }) => (isActive ? 'sidebar-link active' : 'sidebar-link')}
+                  onClick={toggleSidebar}
+                >
                   {item.title}
-                </Link>
+                </NavLink>
               </li>
             ))}
 
-            {/* Sidebar Training Dropdown */}
-            <li className="sidebar-link dropdown">
-              <div className="dropdown-toggle" onClick={toggleTrainingDropdown}>
-                Training <FaChevronDown className={trainingDropdownOpen ? 'rotate' : ''} />
-              </div>
-              <ul className={`dropdown-menu ${trainingDropdownOpen ? 'show' : ''}`}>
-                {trainingDropdownItems.map((item, index) => (
-                  <li key={index}>
-                    <Link to={item.path} className="dropdown-link" onClick={toggleSidebar}>
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+            {/* Training Link in Sidebar (Simple Link to /training) */}
+            <li>
+              <NavLink
+                to="/training"
+                className={({ isActive }) => (isActive ? 'sidebar-link active' : 'sidebar-link')}
+                onClick={toggleSidebar}
+              >
+                Training
+              </NavLink>
             </li>
 
-            {/* Sidebar Training Calendar Dropdown */}
+            {/* Consulting Link in Sidebar (Simple Link to /consulting) */}
+            <li>
+              <NavLink
+                to="/consulting"
+                className={({ isActive }) => (isActive ? 'sidebar-link active' : 'sidebar-link')}
+                onClick={toggleSidebar}
+              >
+                Consulting
+              </NavLink>
+            </li>
+
+            {/* Training Calendar Dropdown in Sidebar */}
             <li className="sidebar-link dropdown">
               <div className="dropdown-toggle" onClick={toggleCalendarDropdown}>
                 Training Calendar <FaChevronDown className={calendarDropdownOpen ? 'rotate' : ''} />
@@ -235,9 +275,16 @@ const Navbar = () => {
               <ul className={`dropdown-menu ${calendarDropdownOpen ? 'show' : ''}`}>
                 {calendarDropdownItems.map((item, index) => (
                   <li key={index}>
-                    <Link to={item.path} className="dropdown-link" onClick={toggleSidebar}>
+                    <NavLink
+                      to={item.path}
+                      className={({ isActive }) => (isActive ? 'dropdown-link active' : 'dropdown-link')}
+                      onClick={() => {
+                        toggleSidebar();
+                        setCalendarDropdownOpen(false);
+                      }}
+                    >
                       {item.title}
-                    </Link>
+                    </NavLink>
                   </li>
                 ))}
               </ul>
@@ -250,13 +297,6 @@ const Navbar = () => {
       </nav>
     </>
   );
-
-  // Helper function to close sidebar and dropdowns
-  function closeSidebar() {
-    setSidebarOpen(false);
-    setTrainingDropdownOpen(false);
-    setCalendarDropdownOpen(false);
-  }
 };
 
 export default Navbar;

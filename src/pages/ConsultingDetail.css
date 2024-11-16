@@ -1,0 +1,185 @@
+/* src/pages/ConsultingDetail.css */
+
+/* Container for the Consulting Detail Page */
+.consulting-detail-container {
+    padding: 20px;
+    margin-top: 100px; /* Prevents overlap with fixed navbar */
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Two-Column Grid Layout */
+  .consulting-grid {
+    display: grid;
+    margin-top: 50px;
+    grid-template-columns: 20% 80%;
+    gap: 20px;
+  }
+  
+  /* Sidebar Styling */
+  .consulting-sidebar {
+    border-right: 1px solid #ddd;
+    padding-right: 10px;
+  }
+  
+  .consulting-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .consulting-sidebar li {
+    margin-bottom: 10px;
+  }
+  
+  .consulting-link {
+    text-decoration: none;
+    color: #007bb5;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .consulting-link:hover {
+    color: #005f87;
+  }
+  
+  .consulting-link.active {
+    color: #005f87;
+    font-weight: bold;
+    border-left: 4px solid #005f87; /* Adds a left border for emphasis */
+    padding-left: 16px; /* Adjusts padding to accommodate the border */
+  }
+  
+  /* Main Content Styling */
+  .consulting-main-content {
+    padding-left: 10px;
+  }
+  
+  .consulting-main-content h1 {
+    font-size: 28px;
+    color: #027778;
+    margin-bottom: 20px;
+  }
+  
+  .consulting-main-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: justify;
+  }
+  
+  /* Title Styling for Small Devices */
+  .consulting-title {
+    display: none; /* Hidden by default */
+    font-size: 24px;
+    color: #027778;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Accordion Styling for Small Screens */
+  .consulting-accordion {
+    display: none; /* Hidden by default */
+    margin-top: 20px;
+  }
+  
+  .accordion-item {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 15px 0;
+  }
+  
+  .accordion-header span {
+    font-size: 16px;
+    color: #007bb5;
+    font-weight: 500;
+  }
+  
+  .accordion-icon {
+    font-size: 16px;
+    color: #007bb5;
+  }
+  
+  .accordion-content {
+    padding: 10px 0 15px 0;
+  }
+  
+  .accordion-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+  }
+  
+  /* Responsive Adjustments */
+  
+  /* Medium Devices (Tablets) */
+  @media (max-width: 992px) {
+    .consulting-grid {
+      grid-template-columns: 25% 75%;
+    }
+  
+    .consulting-main-content h1 {
+      font-size: 24px;
+    }
+  
+    .consulting-main-content p {
+      font-size: 16px;
+    }
+  }
+  
+  /* Small Devices (Mobile Phones) */
+  @media (max-width: 759px) {
+    /* Hide the two-column grid and sidebar */
+    .consulting-grid {
+      display: none;
+    }
+  
+    /* Show the accordion and title */
+    .consulting-accordion {
+      display: block;
+    }
+  
+    .consulting-title {
+      display: block;
+    }
+  
+    /* Accordion Header Hover Effect */
+    .accordion-header:hover {
+      background-color: #f9f9f9;
+    }
+  
+    /* Active Accordion Header Styling */
+    .accordion-header.active {
+      background-color: #f1f1f1;
+    }
+  
+    /* Smooth Transition for Accordion Content */
+    .accordion-content {
+      animation: fadeIn 0.3s ease-in-out;
+    }
+  
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  
+    /* Additional Styling for Consulting Title */
+    .consulting-title {
+      font-size: 24px;
+      color: #027778;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  }
+  

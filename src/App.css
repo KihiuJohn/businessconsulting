@@ -2,11 +2,22 @@ nav ul {
   list-style: none;
   display: flex;
   gap: 20px;
-  background-color: #333;
   padding: 10px;
 }
 
 nav ul li a {
   color: white;
   text-decoration: none;
+}
+
+/* src/App.css */
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the container takes at least the full viewport height */
+}
+
+.content-wrap {
+  flex: 1; /* Allows this section to grow and fill available space */
 }

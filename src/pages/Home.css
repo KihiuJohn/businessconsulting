@@ -142,9 +142,9 @@ ul li {
 
 /* Footer */
 .footer {
-  background-color: #001f2e; /* Professional blue background */
+  background-color: #001f2e; /* Professional dark blue background */
   color: white;
-  padding: 60px 20px;
+  padding: 40px 20px; /* Reduced padding for tighter layout */
   text-align: left;
 }
 
@@ -155,30 +155,82 @@ ul li {
 
 .footer-content {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  grid-template-columns: 1fr; /* Single column by default */
+  gap: 20px; /* Consistent gap between elements */
 }
 
-.footer h3 {
+/* Footer Columns */
+.footer-column {
+  /* Optional: Add padding or margin if needed */
+}
+
+.footer-column.contacts {
+  /* Additional styles for Contacts column if needed */
+}
+
+.footer-column.contact-info {
+  /* Additional styles for Email & Website column if needed */
+}
+
+.footer-column.map {
+  /* Additional styles for Map column if needed */
+}
+
+/* Footer Headings */
+.footer-column h3 {
   font-size: 1.5rem;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: #ffffff; /* White accent color for contrast */
 }
 
-.footer p {
-  font-size: 1rem;
-  margin-bottom: 10px;
+.footer-column p {
+  font-size: 0.9rem; /* Smaller font size for compact layout */
+  margin-bottom: 8px; /* Reduced margin between items */
+  line-height: 1.5;
+}
+
+.footer-column a {
+  color: #00d4ff; /* Highlight color for links */
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+/* Map Styling */
+.footer-map iframe {
+  border: none;
+  width: 100%;
+  height: 250px; /* Slightly reduced height for better balance */
+  margin-top: 20px; /* Space between grid and map */
 }
 
 /* Responsive Adjustments */
+@media (min-width: 992px) {
+  /* Three-column grid for large devices */
+  .footer-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-map iframe {
+    height: 250px; /* Maintain height for large devices */
+  }
+}
+
 @media (max-width: 992px) {
-  /* Adjust grid to two columns on medium screens */
+  /* Adjust grid to two columns on medium screens if needed */
   .grid-section {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .footer-content {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr; /* Maintain single column for simplicity */
+    gap: 15px; /* Slightly tighter gap on medium screens */
+  }
+
+  .footer-map iframe {
+    height: 220px; /* Reduced height for medium screens */
   }
 }
 
@@ -189,7 +241,8 @@ ul li {
   }
 
   .footer-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Single column */
+    gap: 10px; /* Minimal gap for smaller screens */
   }
 
   /* Adjust top panel */
@@ -244,5 +297,25 @@ ul li {
     padding: 30px 15px;
   }
 
-  
+  /* Footer adjustments */
+  .footer {
+    padding: 30px 15px; /* Compact padding for mobile view */
+  }
+
+  .footer-content {
+    gap: 10px; /* Minimal gap for smaller screens */
+  }
+
+  .footer-column h3 {
+    font-size: 1.2rem; /* Smaller font size for headings on small screens */
+  }
+
+  .footer-column p {
+    font-size: 0.8rem; /* Reduced font size for mobile readability */
+    margin-bottom: 6px; /* Minimal margin between items */
+  }
+
+  .footer-map iframe {
+    height: 200px; /* Reduced height for smaller screens */
+  }
 }
