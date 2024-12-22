@@ -83,6 +83,7 @@ const Home = () => {
           <p>
             Founded in 2018, Expro MS Training & Consultant Ltd has positioned itself in the market as a fast-growing and transformative consultant services provider. Our theory of change is anchored on a hybrid of solid theoretical training in Monitoring and Evaluation, Business Management, Strategic Management, Customer Services, Enterprise Risk Management, Root Cause Analysis, Project Management, among others, ensuring high-impact interventions. We are registered with the Registrar of Companies in Kenya, an affirmation of the quality of our programs. The organization is also a partner with other international consulting organizations including NITA, Global Governance and Leadership Center, Africa Consultum, among others, on a high-impact training and mentorship programme known as "Start and Increase Efficiency." Our clientele includes Governments, Small and Medium Enterprises, Parastatals, Financial Institutions, NGOs, and Consultancy firms.
           </p>
+          <a href="/Expro%20Training%20Company%20Profile.pdf" target="_blank" className="company-profile-link">View Company Profile</a>
         </div>
       </div>
 

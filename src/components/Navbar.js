@@ -119,9 +119,7 @@ const Navbar = () => {
 
   // Training Calendar dropdown items
   const calendarDropdownItems = [
-    { title: 'Upcoming Events', path: '/training-calendar/upcoming-events' },
-    { title: 'Past Events', path: '/training-calendar/past-events' },
-    { title: 'Online Trainings', path: '/training-calendar/online-trainings' },
+    { title: 'Training calendar 2025', path: '/training-calendar-2025' },
   ];
 
   return (
@@ -139,14 +137,18 @@ const Navbar = () => {
           <div className="navbar-contact">
             <div className="contact-item">
               <FaPhoneAlt className="icon" />
-              <span>Call Us Any Time</span>
-              <p>Tel: +250724128627 | Cell: +254720090959</p>
+              <a href="tel:+250724128627" style={{ color: '#333333', textDecoration: 'none' }}>Call Us Any Time</a>
+              <p>
+                <a href="tel:+250724128627" style={{ color: '#333333', textDecoration: 'none' }}>Tel: +250724128627</a> |
+                <a href="tel:+254720090959" style={{ color: '#333333', textDecoration: 'none' }}>Cell: +254720090959</a>
+              </p>
             </div>
             <div className="contact-item">
               <FaEnvelope className="icon" />
-              <span>Email Us</span>
-              <p>info@expromsconsulting.com</p>
-              <button className="inquiry-button">Inquiries</button>
+              <a href="mailto:info@expromsconsulting.com" style={{ color: '#333333', textDecoration: 'none' }}>Email Us</a>
+              <p>
+                <a href="mailto:info@expromsconsulting.com" style={{ color: '#333333', textDecoration: 'none' }}>info@expromsconsulting.com</a>
+              </p>
             </div>
           </div>
 

@@ -1,5 +1,3 @@
-// src/App.js
-
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -8,6 +6,7 @@ import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import Consulting from './pages/Consulting';
 import TrainingCalendar from './pages/TrainingCalendar';
+import TrainingCalendar2025 from './pages/TrainingCalendar2025'; // Import new page
 import Training from './pages/Training'; // Import Training Component
 import TrainingDetail from './pages/TrainingDetail';
 import ConsultingDetail from './pages/ConsultingDetail'; // Import ConsultingDetail Component
@@ -29,6 +28,7 @@ function App() {
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/consulting" element={<Consulting />} />
               <Route path="/training-calendar" element={<TrainingCalendar />} />
+              <Route path="/training-calendar-2025" element={<TrainingCalendar2025 />} />
 
               {/* Training Overview Route */}
               <Route path="/training" element={<Training />} />
