@@ -76,14 +76,25 @@ const Home = () => {
         </div>
       </div>
 
-      {/* About Expro MS Training & Consulting Ltd Section */}
+      {/* About Expro Training & Consulting Ltd Section */}
       <div className="full-width-section about-us-background">
         <div className="section-container">
-          <h2>About Expro MS Training & Consulting Ltd</h2>
+          <h2>About Expro Training & Consulting Ltd</h2>
           <p>
-            Founded in 2018, Expro MS Training & Consultant Ltd has positioned itself in the market as a fast-growing and transformative consultant services provider. Our theory of change is anchored on a hybrid of solid theoretical training in Monitoring and Evaluation, Business Management, Strategic Management, Customer Services, Enterprise Risk Management, Root Cause Analysis, Project Management, among others, ensuring high-impact interventions. We are registered with the Registrar of Companies in Kenya, an affirmation of the quality of our programs. The organization is also a partner with other international consulting organizations including NITA, Global Governance and Leadership Center, Africa Consultum, among others, on a high-impact training and mentorship programme known as "Start and Increase Efficiency." Our clientele includes Governments, Small and Medium Enterprises, Parastatals, Financial Institutions, NGOs, and Consultancy firms.
+            The Expro Training & Consulting in East Africa is a renowned Training & Consulting company dedicated to providing leadership development and training programs for individuals and organizations in East Africa and the broader African region. Expro Training & Consulting focuses on equipping participants with the knowledge, skills, and mindset required to excel in their roles and drive positive change in their respective fields.
           </p>
-          <a href="/Expro%20Training%20Company%20Profile.pdf" target="_blank" className="company-profile-link">View Company Profile</a>
+          <h3>Programs and Offerings:</h3>
+          <ol>
+            <li style={{ marginBottom: '10px' }}><strong>Capacity Building Programs:</strong> Expro Training & Consulting offers comprehensive capacity building courses to individuals and organisations, helping them develop skills, knowledge, and resources to enhance performance and effectiveness. These courses cover a wide range of topics, including Project & Program Management, Communication & Soft Skills, Technical & Digital Skills, Financial & Business Development, Community & Social Development and technical skills.</li>
+            <li style={{ marginBottom: '10px' }}><strong>Organisation Customized Training and Consultancy:</strong> Expro Training & Consulting offers customized training and consultancy programs tailored to the specific needs and challenges faced by organizations. These programs address training needs, organizational culture, team building and other aspects crucial for achieving business objectives.</li>
+            <li style={{ marginBottom: '10px' }}><strong>Executive Training and Consultancy Programs:</strong> Designed for experienced leaders and executives, these programs focus on advanced training leadership strategies, organizational transformation, change management, and driving innovation. Participants gain insights into effective leadership training in complex and dynamic environments.</li>
+            <li style={{ marginBottom: '10px' }}><strong>Leadership Development Programs:</strong> Expro Training & Consulting offers comprehensive leadership development programs tailored to various levels of leadership, from emerging leaders to senior executives. These programs cover a wide range of topics, including leadership theories, strategic thinking, decision making, communication, and team management.</li>
+            <li style={{ marginBottom: '10px' }}><strong>Global Partnerships and Collaborations:</strong> Expro Training & Consulting collaborates with renowned global training and consultancy institutes and organizations to bring global best practices in training and consultancy development to Africa. These partnerships facilitate knowledge sharing, networking opportunities, and exposure to diverse leadership perspectives.</li>
+            <li style={{ marginBottom: '10px' }}><strong>Women and Youth in Leadership Programs:</strong> Recognizing the importance of gender diversity in leadership, Expro Training & Consulting provides specialized programs aimed at empowering women and youth leaders. These programs focus on overcoming gender and age-related barriers, developing leadership competencies, and fostering inclusive leadership practices.</li>
+            <li style={{ marginBottom: '10px' }}><strong>New Trainings Programs Trends Research:</strong> Expro Training & Consulting conducts research on changing trainings trends and practices, aiming to contribute to the advancement of training knowledge and its application in the African context.</li>
+            <li style={{ marginBottom: '10px' }}><strong>Coaching and Mentoring:</strong> Expro Training & Consulting offers coaching and mentoring services to provide personalized guidance and support to individuals seeking to enhance their leadership capabilities. These services are provided by experienced coaches who help participants identify their strengths, overcome challenges, and achieve their leadership goals.</li>
+          </ol>
+          <a href="/Expro%20Training%20Company%20Profile.pdf" target="_blank" className="company-profile-link" style={{ fontWeight: 'bold', fontSize: '1.2em' }}>View Company Profile</a>
         </div>
       </div>
 

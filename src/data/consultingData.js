@@ -43,8 +43,12 @@ const consultingData = [
       description:
         'Financial Services Consulting provides strategic financial planning and advisory services tailored to your business needs.',
     },
-    // Add more consulting items as needed
+    {
+      title: 'Audit',
+      path: '/consulting/audit',
+      description:
+        'Our Audit consulting service provides independent verification of business practices and financial records to ensure compliance and transparency.',
+    },
   ];
   
   export default consultingData;
-  

@@ -11,17 +11,25 @@ const Footer = () => {
           {/* Column 1: Kenya Office */}
           <div className="footer-column kenya-office">
             <h3>Kenya Office</h3>
-            <p>Carman Ridgeways, Kiambu Road</p>
-            <p>Suite 05, Ground Flr</p>
-            <p>Kenya</p>
-            <p>+254720090959</p>
-            <p>+254724402062</p>
+            <p>Expro Training & Consulting ltd</p>
+            <p>St. Georges House, 4th Floor, Parliament Road</p>
+            <p>P. O. Box 48564 - 00200</p>
+            <p>Nairobi, Kenya</p>
+            <p>Tel: +254720090959/+254724402062</p>
+            <p>
+              Email: <a href="mailto:info@expromsconsulting.com">info@expromsconsulting.com</a>
+            </p>
+            <p>
+              Website: <a href="https://www.expromsconsulting.com" target="_blank" rel="noopener noreferrer">www.expromsconsulting.com</a>
+            </p>
           </div>
 
           {/* Column 2: Rwanda Office */}
           <div className="footer-column rwanda-office">
             <h3>Rwanda Office</h3>
-            <p>+250724128627</p>
+            <p>KN 14 Avenue Plot 43</p>
+            <p>Kigali, Rwanda</p>
+            <p>Tell: +250724128627</p>
           </div>
 
           {/* Column 3: USA Office, Email & Website */}
@@ -30,8 +38,15 @@ const Footer = () => {
             <p>7741 Radcliffe Drive 53719</p>
             <p>Madison, Wisconsin</p>
             <p>+1-6089571534</p>
-            <p><strong>Email:</strong> <a href="mailto:info@expromsconsulting.com">info@expromsconsulting.com</a></p>
-            <p><strong>Website:</strong> <a href="https://www.expromsconsulting.com" target="_blank" rel="noopener noreferrer">www.expromsconsulting.com</a></p>
+            <p>
+              <strong>Email:</strong> <a href="mailto:info@expromsconsulting.com">info@expromsconsulting.com</a>
+            </p>
+            <p>
+              <strong>Website:</strong>{' '}
+              <a href="https://www.expromsconsulting.com" target="_blank" rel="noopener noreferrer">
+                www.expromsconsulting.com
+              </a>
+            </p>
           </div>
         </div>
         {/* Map Below the Grid */}

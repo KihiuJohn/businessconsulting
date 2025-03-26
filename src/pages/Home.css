@@ -127,7 +127,7 @@ ul li {
 .vision-mission-background .grid-item {
   background: white; /* Light background for contrast */
   color: #015c8b; /* Blue text for consistency */
-  padding: 40px 20px; /* Increased padding for better content spacing */
+  /* padding: 40px 20px; Increased padding for better content spacing */
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -294,7 +294,12 @@ ul li {
 
   /* Grid-item adjustments */
   .grid-item {
-    padding: 30px 15px;
+    padding: 20px 15px; /* Reduced padding to decrease item height */
+  }
+
+  .services-background .grid-item {
+    height: 180px; /* Set explicit height for smaller container */
+    overflow: hidden; /* Hide any overflow if content exceeds the height */
   }
 
   /* Footer adjustments */
@@ -317,5 +322,10 @@ ul li {
 
   .footer-map iframe {
     height: 200px; /* Reduced height for smaller screens */
+  }
+
+  .top-panel-image {
+    height: 40vh;
+    object-fit: cover; /* optional: adjust image fit */
   }
 }

@@ -18,6 +18,9 @@ const TrainingCalendar2025 = () => {
           <a href="/Expro%20Training%20Calendar%202025.pdf" target="_blank" rel="noopener noreferrer" className="download-link">
             View Training Calendar 2025
           </a>
+          <a href="/Time_Table.pdf" target="_blank" rel="noopener noreferrer" className="download-link">
+            View Time Table
+          </a>
         </div>
       </div>
     </>
