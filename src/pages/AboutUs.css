@@ -54,6 +54,11 @@
   hyphens: auto; /* Enables hyphenation */
 }
 
+/* Ordered Lists */
+.about-us-content ol li {
+  margin-bottom: 10px;
+}
+
 /* Responsive Adjustments */
 
 /* Medium Devices (Tablets) */
@@ -95,5 +100,11 @@
   .about-us-content,
   .vision-mission-values {
     margin-top: 60px; /* Further reduced margin for small screens */
+  }
+}
+
+@media (min-width: 992px) {
+  .about-us-content h2:first-of-type {
+    margin-top: 50px;
   }
 }

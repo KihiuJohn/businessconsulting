@@ -1,0 +1,7 @@
+How  run on a local server
+
+
+1 - Extract the zipped file to a desktop
+2 - Copy the path of the folder
+3 - Navigate to the terminal 
+4 - Run npm start 
